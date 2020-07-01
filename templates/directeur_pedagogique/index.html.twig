@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DirecteurPedagogique index{% endblock %}
+
+{% block body %}
+    <h1>DirecteurPedagogique index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Password</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Deleted</th>
+                <th>DateNaissance</th>
+                <th>PhotoUrl</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for directeur_pedagogique in directeur_pedagogiques %}
+            <tr>
+                <td>{{ directeur_pedagogique.id }}</td>
+                <td>{{ directeur_pedagogique.pseudo }}</td>
+                <td>{{ directeur_pedagogique.nom }}</td>
+                <td>{{ directeur_pedagogique.prenom }}</td>
+                <td>{{ directeur_pedagogique.password }}</td>
+                <td>{{ directeur_pedagogique.adresse }}</td>
+                <td>{{ directeur_pedagogique.email }}</td>
+                <td>{{ directeur_pedagogique.telephone }}</td>
+                <td>{{ directeur_pedagogique.deleted ? 'Yes' : 'No' }}</td>
+                <td>{{ directeur_pedagogique.dateNaissance ? directeur_pedagogique.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ directeur_pedagogique.photoUrl }}</td>
+                <td>
+                    <a href="{{ path('directeur_pedagogique_show', {'id': directeur_pedagogique.id}) }}">show</a>
+                    <a href="{{ path('directeur_pedagogique_edit', {'id': directeur_pedagogique.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('directeur_pedagogique_new') }}">Create new</a>
+{% endblock %}

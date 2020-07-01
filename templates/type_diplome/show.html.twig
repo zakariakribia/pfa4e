@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeDiplome{% endblock %}
+
+{% block body %}
+    <h1>TypeDiplome</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_diplome.id }}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{ type_diplome.designation }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ type_diplome.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_diplome_index') }}">back to list</a>
+
+    <a href="{{ path('type_diplome_edit', {'id': type_diplome.id}) }}">edit</a>
+
+    {{ include('type_diplome/_delete_form.html.twig') }}
+{% endblock %}

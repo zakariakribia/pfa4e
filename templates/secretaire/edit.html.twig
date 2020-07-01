@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Secretaire{% endblock %}
+
+{% block body %}
+    <h1>Edit Secretaire</h1>
+
+    {{ include('secretaire/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('secretaire_index') }}">back to list</a>
+
+    {{ include('secretaire/_delete_form.html.twig') }}
+{% endblock %}

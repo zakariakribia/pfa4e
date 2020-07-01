@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Laureat{% endblock %}
+
+{% block body %}
+    <h1>Create new Laureat</h1>
+
+    {{ include('laureat/_form.html.twig') }}
+
+    <a href="{{ path('laureat_index') }}">back to list</a>
+{% endblock %}

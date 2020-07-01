@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Signalisation{% endblock %}
+
+{% block body %}
+    <h1>Signalisation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ signalisation.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ signalisation.date ? signalisation.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('signalisation_index') }}">back to list</a>
+
+    <a href="{{ path('signalisation_edit', {'id': signalisation.id}) }}">edit</a>
+
+    {{ include('signalisation/_delete_form.html.twig') }}
+{% endblock %}

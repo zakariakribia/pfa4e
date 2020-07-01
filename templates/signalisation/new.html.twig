@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Signalisation{% endblock %}
+
+{% block body %}
+    <h1>Create new Signalisation</h1>
+
+    {{ include('signalisation/_form.html.twig') }}
+
+    <a href="{{ path('signalisation_index') }}">back to list</a>
+{% endblock %}
