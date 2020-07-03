@@ -8,13 +8,13 @@
 	height: 3.125rem;
 		
 	&.fx-avatar {
-		&-xs {
-			width: 1.5rem;
-			height: 1.5rem;
-		}
 		&-sm {
 			width: 2rem;
 			height: 2rem;
+		}
+		&-md {
+			width: 4rem;
+			height: 4rem;
 		}
 		&-lg {
 			width: 5rem;

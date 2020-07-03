@@ -14,7 +14,7 @@
                 <div>
                     <a href="{{ path('demande_new') }}" class="btn btn-danger mb-0">
                         <i data-feather="plus" class="pr-1"></i>
-                        <span class="pl-2">Create New</span>
+                        <span class="pl-1 align-middle">Create New</span>
                     </a>
                 </div>
             </div>
@@ -22,7 +22,7 @@
         <div class="fx-card-body">
             <table class="table fx-data-table" id="ResponsiveTable">
                 <thead>
-                    <tr>
+                    <tr class="text-left">
                         <th>Id</th>
                         <th>Etat</th>
                         <th>DateValidationSecretaire</th>
@@ -31,7 +31,7 @@
                         <th>actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                 {% for demande in demandes %}
                     <tr>
                         <td>{{ demande.id }}</td>
@@ -40,8 +40,15 @@
                         <td>{{ demande.dateValidationDP ? demande.dateValidationDP|date('Y-m-d') : '' }}</td>
                         <td>{{ demande.dateValidationDE ? demande.dateValidationDE|date('Y-m-d') : '' }}</td>
                         <td>
-                            <a class="btn btn-info" href="{{ path('demande_show', {'id': demande.id}) }}">show</a>
-                            <a class="btn btn-primary" href="{{ path('demande_edit', {'id': demande.id}) }}">edit</a>
+                            <a class="btn btn-primary btn-sm mb-0" href="{{ path('demande_show', {'id': demande.id}) }}">
+                                <i data-feather="eye" class="pr-1"></i>
+                                <span class="pl-1 align-middle"> show </span>
+                            </a>
+                            <a class="btn btn-warning btn-sm mb-0" href="{{ path('demande_edit', {'id': demande.id}) }}">
+                                <i data-feather="edit-3" class="pr-1"></i>
+                                <span class="pl-1 align-middle"> edit </span>
+                            </a>
+                            {{ include('demande/_delete_form.html.twig', {'button_size': 'btn-sm'}) }}
                         </td>
                     </tr>
                 {% else %}
