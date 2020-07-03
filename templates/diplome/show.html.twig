@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Diplome{% endblock %}
+
+{% block body %}
+    <h1>Diplome</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ diplome.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ diplome.code }}</td>
+            </tr>
+            <tr>
+                <th>Fichier</th>
+                <td>{{ diplome.fichier }}</td>
+            </tr>
+            <tr>
+                <th>DateObtention</th>
+                <td>{{ diplome.dateObtention ? diplome.dateObtention|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateDelivrance</th>
+                <td>{{ diplome.dateDelivrance ? diplome.dateDelivrance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{{ diplome.annee ? diplome.annee|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('diplome_index') }}">back to list</a>
+
+    <a href="{{ path('diplome_edit', {'id': diplome.id}) }}">edit</a>
+
+    {{ include('diplome/_delete_form.html.twig') }}
+{% endblock %}

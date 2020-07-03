@@ -1,0 +1,93 @@
+/*------------------------------------
+	Icons
+------------------------------------*/
+
+@mixin icon($FX-background, $FX-border, $FX-hover-background: darken($FX-background, 7.5%), $FX-hover-border: darken($FX-border, 10%), $FX-active-background: darken($FX-background, 10%), $active-border: darken($FX-border, 12.5%)) {
+  color: color-yiq($FX-background);
+  background-color: ($FX-background);
+  border-color: $FX-border;
+
+  &[href] {
+    &:hover {
+      color: color-yiq($FX-hover-background);
+      background-color: ($FX-hover-background);
+      border-color: $FX-hover-border;
+    }
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    background-color: $FX-background;
+    border-color: $FX-border;
+  }
+}
+
+// Icon Air Styles
+@mixin icon_soft($FX-color, $FX-background, $FX-hover-background) {
+  color: ($FX-color);
+  background: rgba($FX-background, .1);
+
+  &[href] {
+    &:hover,
+    &:focus,
+    &:active {
+      color: color-yiq($FX-hover-background);
+      background: ($FX-hover-background);
+    }
+  }
+}
+
+// Icon Sizing
+@mixin FX__icons_size($config) {
+  // Fontawesome 
+  [class^="fa-"], 
+  [class*=" fa-"] {
+      font-size: FX__get($config, fontawesome);
+  } 
+}
+
+// Icon attr
+@mixin FX__icons_style($attr, $config) {
+  // Fontawesome 
+  [class^="fa-"], 
+  [class*=" fa-"] {
+      #{$attr}: FX__get($config, fontawesome);
+  } 
+}
+
+@mixin FX__icons {
+  [class^="fa-"], 
+  [class*=" fa-"] {
+      @content;
+  }
+}
+
+
+@mixin FX__fontawsome_icon($icon) {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  line-height: 1;
+  text-transform: none;
+  font-smoothing: antialiased;
+  font-weight: 900;
+  content: '#{$icon}';
+}
+
+// Svg icon color 
+@mixin FX__svg_icon_color($color) {
+  g {
+      [fill] {
+          transition: fill 0.3s ease;
+          fill: $color;
+      }
+  }
+
+  &:hover {
+      g {
+          [fill] {
+              transition: fill 0.3s ease;
+          }
+      }
+  }
+}

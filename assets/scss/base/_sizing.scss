@@ -1,0 +1,50 @@
+/*------------------------------------
+  Width
+------------------------------------*/
+// $FX-sizing : (
+//   width : (300, 400, 450, 500, 550, 600),
+//   height : (300, 400, 450, 500, 550, 600)
+// )
+
+// @each $size, $type in $FX-sizing {
+// 		&.fx-width-#{$name} {
+// 			color: FX__get($color, inverse);
+// 			background: FX__get($color, base);
+// 		}
+// 	}
+// width
+.fx-max-width-100 {
+  max-width: 100px !important;
+}
+.fx-max-width-150 {
+  max-width: 150px !important;
+}
+
+.fx-width-300 {
+  width: 300px !important;
+}
+.fx-width-400 {
+  width: 450px !important;
+}
+.fx-width-450 {
+  width: 450px !important;
+}
+
+.fx-height-200 {
+  height: 200px !important;
+}
+.fx-height-300 {
+  height: 300px !important;
+}
+.fx-height-400 {
+  height: 400px !important;
+}
+.fx-height-500 {
+  height: 500px !important;
+}
+.fx-height-550 {
+  height: 550px !important;
+}
+.fx-height-600 {
+  height: 600px !important;
+}

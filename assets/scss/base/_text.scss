@@ -1,0 +1,117 @@
+/*------------------------------------
+  Typography Font Size
+------------------------------------*/
+
+.fx-font-size-1 {
+  font-size: ($font-size-base * .875) !important;
+}
+
+.fx-font-size-1_5 {
+  font-size: ($font-size-base * 1.5) !important;
+}
+
+.fx-font-size-2 {
+  font-size: ($font-size-base * 2) !important;
+}
+
+.fx-font-size-2_5 {
+  font-size: ($font-size-base * 2.5) !important;
+}
+
+.fx-font-size-3 {
+  font-size: ($font-size-base * 3) !important;
+}
+
+.fx-font-size-4 {
+  font-size: ($font-size-base * 4) !important;
+}
+
+.fx-font-size-5 {
+  font-size: ($font-size-base * 5) !important;
+}
+
+// Medium Devices
+@include media_breakpoint_down(md) {
+  .fx-font-size-md-down-5 {
+    font-size: ($font-size-base * 3) !important;
+  }
+}
+@include media_breakpoint_down(sm) {
+  .fx-font-size-sm-1 {
+    font-size: ($font-size-base * .875) !important;
+  }
+  
+  .fx-font-size-sm-1_5 {
+    font-size: ($font-size-base * 1) !important;
+  }
+  
+  .fx-font-size-sm-2 {
+    font-size: ($font-size-base * 1.5) !important;
+  }
+  
+  .fx-font-size-sm-2_5 {
+    font-size: ($font-size-base * 2) !important;
+  }
+  
+  .fx-font-size-sm-3 {
+    font-size: ($font-size-base * 2.5) !important;
+  }
+  
+  .fx-font-size-sm-4 {
+    font-size: ($font-size-base * 3) !important;
+  }
+  
+  .fx-font-size-sm-5 {
+    font-size: ($font-size-base * 3.5) !important;
+  }
+
+}
+
+/*------------------------------------
+  Font Weight
+------------------------------------*/
+
+.fx-text-thin {
+	font-weight: 300 !important;
+}
+.fx-text-regular {
+	font-weight: 400 !important;
+}
+.fx-text-bold {
+	font-weight: 500 !important;
+}
+.fx-text-bolder {
+	font-weight: 700 !important;
+}
+.fx-text-boldest {
+	font-weight: 900 !important;
+}
+
+/*------------------------------------
+  Line Height
+------------------------------------*/
+
+.fx-text-lh-xs {
+  line-height: .8;
+}
+.fx-text-lh-sm {
+  line-height: 1.2;
+}
+
+.fx-text-lh-md {
+  line-height: 1.8;
+}
+
+/*------------------------------------
+  Font Family
+------------------------------------*/
+@if variable-exists(font-family-default) {
+  .fx-font-family-default {
+    font-family: $font-family-default, open-sans !important;
+  }
+}
+@if variable-exists(font-family-secondary) {
+  .fx-font-family-secondary {
+    font-family: $font-family-secondary, open-sans !important;
+  }
+}

@@ -1,0 +1,38 @@
+/*------------------------------------
+	Border radius 
+------------------------------------*/
+@mixin border_top_right_radius($FX-radius) {
+  @if $FX-rounded {
+    border-top-right-radius: $FX-radius;
+  }
+}
+
+@mixin border_top_left_radius($FX-radius) {
+  @if $FX-rounded {
+    border-top-left-radius: $FX-radius;
+  }
+}
+
+@mixin border_bottom_right_radius($FX-radius) {
+  @if $FX-rounded {
+    border-bottom-right-radius: $FX-radius;
+  }
+}
+
+@mixin border_bottom_left_radius($FX-radius) {
+  @if $FX-rounded {
+    border-bottom-left-radius: $FX-radius;
+  }
+}
+
+@mixin FX__rounded {
+  @if $FX-rounded {
+      @content;
+  }
+}
+
+@mixin FX__not_rounded {
+  @if $FX-rounded == false {
+      @content;
+  }
+}

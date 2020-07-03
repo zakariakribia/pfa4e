@@ -1,0 +1,24 @@
+/*------------------------------------
+	Stroke Colors
+------------------------------------*/
+@each $name,
+$color in $FX-colors-state {
+	.fx-stroke-#{$name} {
+		stroke: FX__get($color, base);
+	}
+}
+
+// Base colors
+@each $name,
+$color in FX__get($FX-colors-base, label) {
+	.fx-stroke-label-#{$name} {
+		stroke: $color !important;
+	}
+}
+
+@each $name,
+$color in FX__get($FX-colors-base, shape) {
+	.fx-stroke-shape-#{$name} {
+		stroke: $color !important;
+	}
+}

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Secretaire{% endblock %}
+
+{% block body %}
+    <h1>Secretaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ secretaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ secretaire.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ secretaire.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ secretaire.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ secretaire.password }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ secretaire.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ secretaire.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ secretaire.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Deleted</th>
+                <td>{{ secretaire.deleted ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DateNaissance</th>
+                <td>{{ secretaire.dateNaissance ? secretaire.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>PhotoUrl</th>
+                <td>{{ secretaire.photoUrl }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('secretaire_index') }}">back to list</a>
+
+    <a href="{{ path('secretaire_edit', {'id': secretaire.id}) }}">edit</a>
+
+    {{ include('secretaire/_delete_form.html.twig') }}
+{% endblock %}

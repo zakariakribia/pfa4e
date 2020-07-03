@@ -1,0 +1,21 @@
+/*------------------------------------
+	Navs
+------------------------------------*/
+.nav-link {
+	color: FX__color_state(dark, base);
+	&.active {
+		color: FX__color_state(brand, base);
+	}
+	i,
+	svg {
+		width: 15px;
+		font-size: 1.2rem;
+	}
+}
+.nav.nav-pills {
+	.nav-item {
+		.nav-link {
+			padding: .5rem 1.25rem;
+		}
+	}
+}

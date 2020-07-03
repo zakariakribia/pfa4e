@@ -1,0 +1,41 @@
+/*------------------------------------
+    Paginations
+------------------------------------*/
+.pagination{
+
+	&.pagination-grid {
+		flex:1;
+		display:flex;
+		justify-content: center;
+		margin:0;
+
+		.page-item{
+
+			.page-link{
+				background-color: transparent;
+				border: 0;
+				font-weight: 400;
+				color: #928eaa;
+				border-radius: 5px;
+				width: 2.25rem;
+				height: 2.25rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 1.2rem;
+				margin: 0 0.1rem;
+				@include FX__transition;
+			}
+
+			&.active,
+			&:hover,
+			&:focus{
+
+				.page-link{
+					background-color: FX__color_state(brand, base);
+					color: FX__color_state(brand, inverse);
+				}
+			}
+		}
+	}		
+}

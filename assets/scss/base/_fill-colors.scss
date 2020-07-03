@@ -1,0 +1,28 @@
+/*------------------------------------
+	Fill Colors
+------------------------------------*/
+@each $name,
+$color in $FX-colors-state {
+	.fx-fill-#{$name} {
+		fill: FX__get($color, base);
+	}
+}
+
+// Base colors
+@each $name,
+$color in FX__get($FX-colors-base, label) {
+	.fx-fill-label-#{$name} {
+		fill: $color !important;
+	}
+}
+
+@each $name,
+$color in FX__get($FX-colors-base, shape) {
+	.fx-fill-shape-#{$name} {
+		fill: $color !important;
+	}
+}
+
+.fx-fill-none {
+	fill: none !important;
+}

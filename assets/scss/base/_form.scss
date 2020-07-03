@@ -1,0 +1,69 @@
+/*------------------------------------
+    Form
+------------------------------------*/
+.fx-form {
+	.fx-form-group {
+		&.fx-form-group-inline {
+			display: table;
+			padding: 0;
+
+			>.fx-form-label {
+				display: table-cell;
+				vertical-align: middle;
+				margin: 0;
+				padding-right: 1rem;
+
+				&.fx-form-label-no-wrap {
+					white-space: nowrap;
+				}
+
+				>label {
+					margin: 0;
+				}
+			}
+
+			>.fx-form-control {
+				display: table-cell;
+				vertical-align: middle;
+				margin: 0;
+				width: 100%;
+				@include FX__rounded {
+					border-radius: 0.4rem;
+				}
+			}
+		}
+	}
+}
+
+div.fx-search-expand {
+	width: 0%;
+	min-width: 47px;
+	position: relative;
+	overflow: hidden; 
+	transition: all 0.3s;
+	border-right: 1px solid $input-border-color;
+	@include FX__rounded {
+		border-radius: 0.4rem;
+	}
+	&.active {
+		width: 100%;
+		border-right: 0px;
+		.expand-controler {
+			padding: 0;
+		}
+	}
+	&:not(.active) .form-control.form-control-lg + .fx-input-icon-child {
+		width: 100%;
+	}
+}
+@include FX__desktop {
+	.fx-form {
+		&.fx-form-label-right {
+			.fx-form-group {
+				label:not(.fx-checkbox):not(.fx-radio):not(.fx-option) {
+					text-align: right;
+				}
+			}
+		}
+	}
+}

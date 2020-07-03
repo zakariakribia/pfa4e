@@ -1,0 +1,98 @@
+/*------------------------------------
+	helper Functions
+------------------------------------*/
+
+@function FX__get($map, $keys...) {
+    @if length($keys) == 1 {
+        $keys: nth($keys, 1);
+    }
+
+    $warn: "#{nth($keys, 1)}";
+    $length: length($keys);
+    $get: map-get($map, nth($keys, 1));
+
+    @if $length > 1 {
+        @for $i from 2 through $length {
+            @if $get != null and type-of($get) == 'map' {
+                $warn: $warn + "->#{nth($keys, $i)}";
+                $get: map-get($get, nth($keys, $i));
+
+                @if $get == null {
+                    @return null;
+                }
+            }
+            @else {
+                @return FX__get_warning($warn, $get, nth($keys, $i));
+            }
+        }
+    }
+
+    @return $get;
+}
+
+@function FX__has($map, $keys...) {
+    @if length($keys) == 1 {
+        $keys: nth($keys, 1);
+    }
+
+    $warn: "#{nth($keys, 1)}";
+    $length: length($keys);
+    $get: map-get($map, nth($keys, 1));
+
+    @if $length > 1 {
+        @for $i from 2 through $length {
+            @if $get != null and type-of($get) == 'map' {
+                $warn: $warn + "->#{nth($keys, $i)}";
+                $get: map-get($get, nth($keys, $i));
+
+                @if $get == null {
+                    @return false;
+                }
+            }
+            @else {
+                @return false;
+            }
+        }
+    }
+
+    @if $get != null {
+        @return true;
+    } 
+    @else {
+        @return false;   
+    }
+}
+
+@function FX__get_warning($warn, $get, $key) {
+    @if $get == null {
+        @warn "Map has no value for key search `#{$warn}`";
+    }
+    @else if type-of($get) != 'map' {
+        @warn "Non-map value found for key search `#{$warn}`, cannot search for key `#{$key}`";
+    }
+    @return null;
+}
+
+@function FX__color_state($name, $type: null) {
+    @if ($type == null) {
+        $type: base;
+    }
+
+    @return FX__get($FX-colors-state, $name, $type);
+}
+
+@function FX__color_brand($type: null) {
+    @return FX__color_state(brand, $type);
+}
+
+@function FX__color_base($type, $level) {
+    @return FX__get($FX-colors-base, $type, $level);
+}
+
+@function FX__media_breakpoint($type) {
+    @if (FX__has($FX-media-breakpoints, $type)) {
+        @return FX__get($FX-media-breakpoints, $type);
+    } @else {
+        @return $type;
+    }   
+}

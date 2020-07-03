@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeDiplome index{% endblock %}
+
+{% block body %}
+    <h1>TypeDiplome index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_diplome in type_diplomes %}
+            <tr>
+                <td>{{ type_diplome.id }}</td>
+                <td>{{ type_diplome.designation }}</td>
+                <td>{{ type_diplome.description }}</td>
+                <td>
+                    <a href="{{ path('type_diplome_show', {'id': type_diplome.id}) }}">show</a>
+                    <a href="{{ path('type_diplome_edit', {'id': type_diplome.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_diplome_new') }}">Create new</a>
+{% endblock %}

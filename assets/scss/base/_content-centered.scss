@@ -1,0 +1,21 @@
+/*------------------------------------
+	Content Centered
+------------------------------------*/
+
+.fx-content-centered-y {
+	@include content_centered(false, true);
+}
+
+// Large Devices
+@include media_breakpoint_up(md) {
+	.fx-content-centered-y-md {
+		@include content_centered(false, true);
+	}
+}
+
+// Large Devices
+@include media_breakpoint_up(lg) {
+	.fx-content-centered-y-lg {
+		@include content_centered(false, true);
+	}
+}

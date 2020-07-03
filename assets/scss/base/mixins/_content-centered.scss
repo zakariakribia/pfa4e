@@ -1,0 +1,18 @@
+/*------------------------------------
+	Content Centered
+------------------------------------*/
+
+@mixin content_centered($FX-horizontal: true, $FX-vertical: true) {
+  position: absolute;
+  @if ($FX-horizontal and $FX-vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($FX-horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($FX-vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}

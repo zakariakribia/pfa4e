@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Laureat{% endblock %}
+
+{% block body %}
+    <h1>Laureat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ laureat.id }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ laureat.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ laureat.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ laureat.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ laureat.password }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ laureat.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ laureat.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ laureat.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Deleted</th>
+                <td>{{ laureat.deleted ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ laureat.datenaissance ? laureat.datenaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>PhotoUrl</th>
+                <td>{{ laureat.photoUrl }}</td>
+            </tr>
+            <tr>
+                <th>CinNumSejour</th>
+                <td>{{ laureat.cinNumSejour }}</td>
+            </tr>
+            <tr>
+                <th>LieuNaissance</th>
+                <td>{{ laureat.lieuNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ laureat.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>NomArabe</th>
+                <td>{{ laureat.nomArabe }}</td>
+            </tr>
+            <tr>
+                <th>PrenomArabe</th>
+                <td>{{ laureat.prenomArabe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('laureat_index') }}">back to list</a>
+
+    <a href="{{ path('laureat_edit', {'id': laureat.id}) }}">edit</a>
+
+    {{ include('laureat/_delete_form.html.twig') }}
+{% endblock %}

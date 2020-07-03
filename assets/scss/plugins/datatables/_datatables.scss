@@ -1,0 +1,252 @@
+/*------------------------------------
+	Datatables
+------------------------------------*/
+%extends {
+    font-size: 18px;
+    position: absolute;
+    line-height: 0 !important;
+    top:50%
+}
+table.dataTable {
+    border: 1px solid $border-color;
+
+    &.no-footer {
+        border-bottom-color: $border-color;
+    }
+
+    thead th,
+    thead td {
+        border-top-width: 0;
+        border-bottom-width: 0;
+        padding: 8px 10px;
+        font-weight: 400;
+        font-size: inherit;
+        min-width: 60px;
+    }
+
+    thead {
+        .sorting_asc,
+        .sorting_desc {
+            background-image: none;
+            background-color: rgba(FX__color_brand(), .15);
+            position: relative;
+
+            &::after,
+            &::before {
+                @extend %extends;
+                right: 15px;
+            }
+        }
+    }
+
+    thead .sorting_asc::before {
+        display: block;
+        content: "\2191";
+    }
+
+    thead .sorting_desc::after {
+        display: block;
+        content: "\2193";
+    }
+
+    thead .sorting {
+        background-image: none;
+        position: relative;
+
+        &::before,
+        &::after {
+            @extend %extends;
+        }
+
+        &::before {
+            display: block;
+            content: "\2191";
+            right: 20px;
+        }
+
+        &::after {
+            display: block;
+            content: "\2193";
+            right: 10px;
+        }
+    }
+
+    tbody td.sorting_1 {
+        background-color: rgba(FX__color_brand(), .15);
+    }
+
+    &.dtr-inline.collapsed,
+    &.dtr-inline.collapsed {
+        >tbody>tr[role="row"]>td:first-child::before {
+            top: 9.5px;
+            left: 7px;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-width: 0;
+            box-shadow: none;
+            background-color: $gray-300;
+            font-size: 14px;
+            font-weight: $font-weight-bold;
+            color: $gray-500;
+        }
+    }
+
+    >tbody>tr.child {
+        ul.dtr-details {
+            display: block;
+        }
+
+        span.dtr-title {
+            font-weight: 400;
+        }
+    }
+}
+
+.dataTables_wrapper {
+    .dataTables_length {
+        text-align: left;
+
+        @include media-breakpoint-up(sm) {
+            float: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .select2-container--default {
+            margin-right: 5px;
+            width: auto !important;
+            .select2-selection--single {
+                height: 32px;
+                border-color: $border-color;
+                @include border-radius();
+                .select2-selection__rendered {
+                    position: relative;
+                    padding: 0.25rem 2rem 0.65rem 1rem;
+                    line-height: 1.5;
+                    min-width: 63px;
+                }
+                .select2-selection__arrow {
+                    b {
+                        border-top-color: $gray-500;
+                    }
+                }
+            }
+        }
+    }
+
+    .dataTables_filter {
+        text-align: left;
+
+        @include media-breakpoint-up(sm) {
+            float: right;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        input {
+            margin-left: 12px;
+            border: 1px solid $border-color;
+            padding: 5px 10px;
+            line-height: 1.539;
+            color: $body-color;
+            @include border-radius();
+            width: 100%;
+
+            @include media-breakpoint-up(sm) {
+                width: auto;
+            }
+
+            &::placeholder {
+                color: $gray-500;
+            }
+        }
+    }
+
+    .dataTables_info {
+        margin-top: 20px;
+        padding: 5px 9px;
+        text-align: left;
+        font-size: 12px;
+
+    }
+    .dataTables_filter {
+        .form-control {
+            height: 45px;
+        }
+    }
+
+    .dataTables_paginate {
+        padding-top: 0;
+        margin-top: 20px;
+        text-align: left;
+
+        .paginate_button {
+            position: relative;
+            margin-left: -1px;
+            line-height: 1rem;
+            color: #526484;
+            background-color: #fff;
+            font-size: .8125rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: calc(1rem + 1.125rem + 2px);
+            border-radius: 0;
+            &.page-item .page-link {
+                padding: .75rem 1rem;
+            }
+            &.page-item.active .page-link,
+            &.page-item:hover .page-link {
+                color: FX__color_brand(inverse);
+                background-color: FX__color_brand(base);
+                border: 2px solid FX__color_brand(base);
+            }
+            &.disabled {
+                pointer-events: none;
+                cursor: no-drop;
+                &,
+                &:hover,
+                &:focus {
+                    background-color: lighten($gray-200, 3%);
+                    color: $gray-400 !important;
+                }
+            }
+            &.previous { 
+                @include border_top_left_radius(.25rem);
+                @include border_bottom_left_radius(.25rem);
+            }
+            &.next { 
+                @include border_top_right_radius(.25rem);
+                @include border_bottom_right_radius(.25rem);
+            }
+            @include hover-focus() {
+                border: 0;
+                background-image: none;
+                background-color: $gray-400;
+                color: $body-color !important;
+            }
+
+            &.current {
+
+                &,
+                &:hover,
+                &:focus {
+                    border: 0;
+                    background-image: none;
+                    background-color: FX__color_brand();
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande index{% endblock %}
+
+{% block body %}
+    <div class="fx-card fx-card-tabs">
+        <div class="fx-card-head align-items-center">
+            <div class="fx-card-head-container">
+              <h3 class="fx-card-head-title text-capitalize">
+                Demande index
+              </h3>
+            </div>
+            <div class="fx-card-head-toolbar">
+                <div>
+                    <a href="{{ path('demande_new') }}" class="btn btn-danger mb-0">
+                        <i data-feather="plus" class="pr-1"></i>
+                        <span class="pl-2">Create New</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="fx-card-body">
+            <table class="table fx-data-table" id="ResponsiveTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Etat</th>
+                        <th>DateValidationSecretaire</th>
+                        <th>DateValidationDP</th>
+                        <th>DateValidationDE</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for demande in demandes %}
+                    <tr>
+                        <td>{{ demande.id }}</td>
+                        <td>{{ demande.etat }}</td>
+                        <td>{{ demande.dateValidationSecretaire ? demande.dateValidationSecretaire|date('Y-m-d') : '' }}</td>
+                        <td>{{ demande.dateValidationDP ? demande.dateValidationDP|date('Y-m-d') : '' }}</td>
+                        <td>{{ demande.dateValidationDE ? demande.dateValidationDE|date('Y-m-d') : '' }}</td>
+                        <td>
+                            <a class="btn btn-info" href="{{ path('demande_show', {'id': demande.id}) }}">show</a>
+                            <a class="btn btn-primary" href="{{ path('demande_edit', {'id': demande.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

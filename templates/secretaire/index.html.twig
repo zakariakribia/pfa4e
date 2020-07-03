@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Secretaire index{% endblock %}
+
+{% block body %}
+    <h1>Secretaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Password</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Deleted</th>
+                <th>DateNaissance</th>
+                <th>PhotoUrl</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for secretaire in secretaires %}
+            <tr>
+                <td>{{ secretaire.id }}</td>
+                <td>{{ secretaire.pseudo }}</td>
+                <td>{{ secretaire.nom }}</td>
+                <td>{{ secretaire.prenom }}</td>
+                <td>{{ secretaire.password }}</td>
+                <td>{{ secretaire.adresse }}</td>
+                <td>{{ secretaire.email }}</td>
+                <td>{{ secretaire.telephone }}</td>
+                <td>{{ secretaire.deleted ? 'Yes' : 'No' }}</td>
+                <td>{{ secretaire.dateNaissance ? secretaire.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ secretaire.photoUrl }}</td>
+                <td>{{ secretaire.etablissement }}</td>
+                <td>
+                    <a href="{{ path('secretaire_show', {'id': secretaire.id}) }}">show</a>
+                    <a href="{{ path('secretaire_edit', {'id': secretaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('secretaire_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+.fx-full-menu-target {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  width: 57px;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #fff;
+  z-index: 999;
+}

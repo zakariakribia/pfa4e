@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Laureat{% endblock %}
+
+{% block body %}
+    <h1>Edit Laureat</h1>
+
+    {{ include('laureat/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('laureat_index') }}">back to list</a>
+
+    {{ include('laureat/_delete_form.html.twig') }}
+{% endblock %}

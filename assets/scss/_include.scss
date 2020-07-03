@@ -1,0 +1,55 @@
+/*------------------------------------
+	Core
+------------------------------------*/
+
+// Base
+@import "base/normalize";
+@import "base/avatar";
+@import "base/badge";
+@import "base/borders";
+@import "base/card";
+@import "base/card-columns";
+@import "base/checkbox";
+@import "base/content-centered";
+@import "base/divider";
+@import "base/fill-colors";
+@import "base/form";
+@import "base/icons-size";
+@import "base/input-icon";
+@import "base/links";
+@import "base/opacity";
+@import "base/position-spaces";
+@import "base/radio";
+@import "base/shadows";
+@import "base/space";
+@import "base/sizing";
+@import "base/stroke-colors";
+@import "base/text-colors";
+@import "base/text";
+@import "base/z-index";
+
+// General
+@import "general/nav";
+@import "general/pagination";
+
+
+// Headers
+@import "headers/header-default";
+@import "headers/header-responsive";
+//headers skins
+@import "headers/menu-skin/default-menu-skin";
+// Choose Skin Style : dark, light, gradient;
+@include DefaultMenu(light);
+
+
+// Plugins
+
+/*::::::::::: DataTables :::::::::*/
+@import "plugins/datatables/datatables";
+
+/*::::::::::: select 2 :::::::::*/
+@import "plugins/select2/select2";
+
+
+
+

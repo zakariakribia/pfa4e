@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Laureat index{% endblock %}
+
+{% block body %}
+    <h1>Laureat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Password</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Deleted</th>
+                <th>Datenaissance</th>
+                <th>PhotoUrl</th>
+                <th>CinNumSejour</th>
+                <th>LieuNaissance</th>
+                <th>Nationalite</th>
+                <th>NomArabe</th>
+                <th>PrenomArabe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for laureat in laureats %}
+            <tr>
+                <td>{{ laureat.id }}</td>
+                <td>{{ laureat.pseudo }}</td>
+                <td>{{ laureat.nom }}</td>
+                <td>{{ laureat.prenom }}</td>
+                <td>{{ laureat.password }}</td>
+                <td>{{ laureat.adresse }}</td>
+                <td>{{ laureat.email }}</td>
+                <td>{{ laureat.telephone }}</td>
+                <td>{{ laureat.deleted ? 'Yes' : 'No' }}</td>
+                <td>{{ laureat.datenaissance ? laureat.datenaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ laureat.photoUrl }}</td>
+                <td>{{ laureat.cinNumSejour }}</td>
+                <td>{{ laureat.lieuNaissance }}</td>
+                <td>{{ laureat.nationalite }}</td>
+                <td>{{ laureat.nomArabe }}</td>
+                <td>{{ laureat.prenomArabe }}</td>
+                <td>
+                    <a href="{{ path('laureat_show', {'id': laureat.id}) }}">show</a>
+                    <a href="{{ path('laureat_edit', {'id': laureat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('laureat_new') }}">Create new</a>
+{% endblock %}

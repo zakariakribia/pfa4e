@@ -1,0 +1,161 @@
+/*------------------------------------
+	Tooltips
+------------------------------------*/
+.tooltip {
+    .tooltip-inner {
+        box-shadow: $popover-box-shadow;
+        padding: 0.5rem 0.75rem;
+    }
+
+    &.show {
+        opacity: 1;
+    }
+
+    &.tooltop-auto-width {
+        .tooltip-inner {
+            white-space: nowrap;
+            max-width: none;
+        }
+    }
+
+    // Skins
+    // Dark skin
+    &.tooltip-light {
+        $m-bg-color: FX__get($FX-colors-state, light, base);
+        $m-font-color: FX__get($FX-colors-state, light, inverse);
+
+        .tooltip-inner {
+            color: $m-font-color;
+            background: #{$m-bg-color};
+        }
+
+        &.bs-tooltip-top {
+            .arrow::before {
+                border-top-color: #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-right {
+            .arrow::before {
+                border-right-color: #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+
+        &.bs-tooltip-bottom {
+            .arrow::before {
+                border-bottom-color: #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-left {
+            .arrow::before {
+                border-left-color: #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+    }
+
+    // Brand skin
+    &.tooltip-brand {
+        $m-bg-color: FX__color_brand();
+        $m-font-color: FX__color_brand(inverse);
+
+        .tooltip-inner {
+            color: $m-font-color;
+            background: #{$m-bg-color};
+        }
+
+        &.bs-tooltip-top {
+            .arrow::before {
+                border-top-color: #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-right {
+            .arrow::before {
+                border-right-color: #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+
+        &.bs-tooltip-bottom {
+            .arrow::before {
+                border-bottom-color: #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-left {
+            .arrow::before {
+                border-left-color: #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+    }
+
+    // Danger skin
+    &.tooltip-danger{
+        $m-bg-color: FX__get($FX-colors-state, danger, base);
+        $m-font-color: FX__get($FX-colors-state, danger, inverse);
+
+        .tooltip-inner {
+            color: $m-font-color;
+            background: #{$m-bg-color};
+        }
+
+        &.bs-tooltip-top {
+            .arrow::before {
+                border-top-color: #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-right {
+            .arrow::before {
+                border-right-color: #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+
+        &.bs-tooltip-bottom {
+            .arrow::before {
+                border-bottom-color: #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-left {
+            .arrow::before {
+                border-left-color: #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+    }
+
+    // Success skin
+    &.tooltip-success {
+        $m-bg-color: FX__get($FX-colors-state, success, base);
+        $m-font-color: FX__get($FX-colors-state, success, inverse);
+
+        .tooltip-inner {
+            color: $m-font-color;
+            background: #{$m-bg-color};
+        }
+
+        &.bs-tooltip-top {
+            .arrow::before {
+                border-top-color: #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-right {
+            .arrow::before {
+                border-right-color: #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+
+        &.bs-tooltip-bottom {
+            .arrow::before {
+                border-bottom-color: #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-left {
+            .arrow::before {
+                border-left-color: #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+    }
+}

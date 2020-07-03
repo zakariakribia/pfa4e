@@ -1,0 +1,12 @@
+/*------------------------------------
+    Go Up
+------------------------------------*/
+// Base
+.fx-scrolltop {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;     
+    background: FX__color_brand();
+    box-shadow: 0 0 15px 1px rgba(69,65,78, 0.2);
+}

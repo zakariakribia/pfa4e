@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DirecteurPedagogique{% endblock %}
+
+{% block body %}
+    <h1>DirecteurPedagogique</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ directeur_pedagogique.id }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ directeur_pedagogique.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ directeur_pedagogique.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ directeur_pedagogique.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ directeur_pedagogique.password }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ directeur_pedagogique.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ directeur_pedagogique.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ directeur_pedagogique.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Deleted</th>
+                <td>{{ directeur_pedagogique.deleted ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DateNaissance</th>
+                <td>{{ directeur_pedagogique.dateNaissance ? directeur_pedagogique.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>PhotoUrl</th>
+                <td>{{ directeur_pedagogique.photoUrl }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('directeur_pedagogique_index') }}">back to list</a>
+
+    <a href="{{ path('directeur_pedagogique_edit', {'id': directeur_pedagogique.id}) }}">edit</a>
+
+    {{ include('directeur_pedagogique/_delete_form.html.twig') }}
+{% endblock %}

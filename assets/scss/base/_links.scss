@@ -1,0 +1,458 @@
+/*------------------------------------
+  Links
+------------------------------------*/
+.fx-link {
+  display: inline-block;
+
+  &-icon {
+    position: relative;
+    line-height: .7;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: $link-icon-width;
+    height: $link-icon-height;
+    font-size: $link-icon-font-size;
+    color: $link-icon-color;
+    background-color: $link-icon-bg-color;
+    @include border_radius($link-icon-border-radius);
+    transition: $link-icon-transition;
+
+    &-inner {
+      @include content_centered;
+    }
+  }
+
+  &:hover {
+    .fx-link-icon {
+      background-color: $link-hover-color;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+/* Link Light */
+.fx-link-light {
+  color: $link-light-color;
+  border-bottom: $link-light-border-width dashed $link-light-border-color;
+
+  &:hover {
+    color: $link-light-hover-color;
+    border-color: $link-light-hover-border-color;
+  }
+}
+
+/* Link Muted */
+.fx-link-muted {
+  color: $link-muted-color;
+  border-bottom: $link-muted-border-width dashed $link-muted-border-color;
+
+  &:hover {
+    border-color: $link-hover-color;
+  }
+
+  &-toggle {
+    &-default {
+      display: inline-block;
+    }
+
+    &-toggled {
+      display: none;
+    }
+  }
+
+  &.toggled {
+    .fx-link-muted-toggle-default {
+      display: none;
+    }
+
+    .fx-link-muted-toggle-toggled {
+      display: inline-block;
+    }
+  }
+}
+
+/* Link White */
+.fx-link-white {
+  color: $link-white-color;
+  border-bottom: $link-white-border-width dashed $link-white-border-color;
+
+  &:hover {
+    color: $link-white-hover-color;
+  }
+}
+
+.fx-link {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    top: 1rem;
+    left: 0;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    text-decoration: none !important;
+
+    &:after {
+      width: 100%;
+    }
+  }
+
+  @include FX__link_color(FX__get($FX-font-color, link, default), FX__get($FX-font-color, link, hover));
+
+  @each $name,
+  $color in $FX-colors-state {
+    &.fx-link-#{$name} {
+      @include FX__link_color(FX__get($color, base), darken(FX__get($color, base), 10%));
+    }
+  }
+}
+
+// lined link
+.fx-lined-link {
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    z-index: 1;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #e8e9ea;
+    transform: scale(0, 1);
+    transform-origin: 100% 50%;
+    will-change: transform;
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &.link-thin {
+    &:after {
+      height: 1px;
+    }
+  }
+
+  &:hover:after {
+    transform: scale(1);
+    transform-origin: 0 50%;
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.2s ease-out;
+  }
+  &.dark-link {
+    &:after {
+      background-color: #000;
+    }
+  }
+  &.state-link {
+    &:after {
+      background-color: FX__color_brand();
+    }
+  }
+}
+.active>.fx-lined-link:after {
+  transform: scale(1);
+  background-color: FX__color_brand();
+}
+
+@media not all and (min-width: 992px) {
+  .fx-lined-link {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    transition: all .2s ease-out;
+    will-change: transform, color;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      display: block;
+      width: 0.15em;
+      height: 100%;
+      background: currentColor;
+      transform: translate(-0.7em, 0) scale(0, 1);
+      transition: transform .2s ease-out;
+    }
+
+    &:hover {
+      color: rgba(37, 41, 48, 0.5);
+      transform: translate(0.2em, 0);
+    }
+
+    &.active {
+      color: #ffffff;
+      transform: translate(0.7em, 0);
+
+      &:before {
+        transform: translate(-0.7em, 0) scale(1);
+      }
+    }
+  }
+
+}
+
+@media (max-width: 991px) and (max-height: 550px) {
+  .fx-lined-link {
+    font-size: 1.2em;
+  }
+}
+
+
+/*::::::::::::::::: Arrow Link Animation ::::::::::::::*/
+.fx-arrow-link {
+  
+    display: inline-block;
+    text-align: left;
+  
+    .link_wrap {
+      position: relative;
+      text-decoration: inherit;
+      speak: none;
+      vertical-align: text-bottom;
+      
+      .link_text {
+        padding-right: 36px;
+        position: relative;
+        display: inline-block;
+      }
+    }
+  .arrow {
+    letter-spacing: 0;
+  }
+
+  &[data-style="arrow-animation"] {
+
+    .link_wrap .link_text {
+      &:after {
+        display: none;
+      }
+
+      padding: 0 0 0 40px;
+      position: relative;
+
+      > .text {
+        display: block;
+      }
+    }
+
+    .line {
+      height: 1px;
+      width: 25px;
+      position: absolute;
+      content: '';
+      background: #000;
+      left: 0;
+      display: block;
+      top: 50%;
+      transform-origin: left;
+      transform: translateY(calc(-50% + 0.5px)) translateZ(0);
+    }
+
+    svg {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      width: 6px;
+
+      polyline {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 0;
+      }
+    }
+
+    &:not([data-style="arrow-animation"]) * {
+      animation-duration: 0s !important;
+    }
+
+    svg polyline {
+      animation: FxArrowEnd 0.45s cubic-bezier(0.23, 0.46, 0.4, 1) forwards;
+    }
+
+    .link_wrap {
+      polyline {
+        animation: none;
+      }
+
+      .link_text > .text {
+        animation: FxArrowTextStart 0.45s cubic-bezier(0.23, 0.46, 0.4, 1) forwards;
+      }
+    }
+
+    .line {
+      animation: FxArrowLineStart 0.45s cubic-bezier(0.23, 0.46, 0.4, 1) forwards;
+    }
+
+    svg {
+      animation: FxArrowSVGStart 0.45s cubic-bezier(0.23, 0.46, 0.4, 1) forwards;
+    }
+
+    
+  }
+  &[data-placement="right"] {
+    .link_wrap .link_text {
+      padding: 0 40px 0 0;
+      .line { 
+        left: auto;
+        right: 5px;
+      }
+      svg {
+        left: auto;
+        right: 0px;
+      }
+    }
+  }
+}
+.fx-arrow-link[data-style="arrow-animation"],
+.hover-to-animate-arrow {
+  &:hover {
+    cursor: pointer;
+    .link_wrap {
+      svg {
+        animation: FxArrowSVGEnd 0.45s cubic-bezier(0.23, 0.46, 0.4, 1) forwards;
+      }
+  
+      .link_text {
+        .line {
+          animation: FxArrowLineEnd 0.45s cubic-bezier(0.23, 0.46, 0.4, 1) forwards;
+        }
+  
+        > .text {
+          animation: FxArrowTextEnd 0.45s cubic-bezier(0.23, 0.46, 0.4, 1) forwards;
+        }
+      }
+  
+      polyline {
+        animation: FxLineStart  0.45s ease 0.25s forwards;
+        animation: FxArrowStart 0.8s ease forwards;
+      }
+    }
+  }
+}
+
+@keyframes FxArrowSVGStart {
+  0% {
+    transform: translateY(calc(-50% + 0.5px)) translateX(0) translateZ(0);
+  }
+
+  100% {
+    transform: translateY(calc(-50% + 0.5px)) translateX(-3px) translateZ(0);
+  }
+}
+
+@keyframes FxArrowSVGEnd {
+  0% {
+    transform: translateY(calc(-50% + 0.5px)) translateX(-3px) translateZ(0);
+  }
+
+  100% {
+    transform: translateY(calc(-50% + 0.5px)) translateX(0) translateZ(0);
+  }
+}
+
+@keyframes FxArrowTextStart {
+  0% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes FxArrowTextEnd {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes FxLineStart  {
+  0% {
+    stroke-dashoffset: 140px;
+    stroke-dasharray: 140px;
+  }
+
+  100% {
+    stroke-dasharray: 140px;
+    stroke-dashoffset: 10px;
+  }
+}
+
+@keyframes FxArrowStart {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0;
+  }
+
+  50% {
+    stroke-dashoffset: 140px;
+    stroke-dasharray: 140px;
+  }
+
+  100% {
+    stroke-dasharray: 140px;
+    stroke-dashoffset: 10px;
+  }
+}
+
+@keyframes FxArrowEnd {
+  0% {
+    stroke-dashoffset: 10px;
+    stroke-dasharray: 150px 150px;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -53px;
+    stroke-dasharray: 1px 150px;
+  }
+}
+
+@keyframes FxArrowLineStart {
+  0% {
+    transform-origin: left;
+    transform: scaleX(1.2) translateY(calc(-50% + 0.5px)) translateZ(0);
+  }
+
+  100% {
+    transform: scaleX(1) translateY(calc(-50% + 0.5px)) translateZ(0);
+  }
+}
+
+@keyframes FxArrowLineEnd {
+  0% {
+    transform-origin: right;
+    transform: scaleX(1) translateY(calc(-50% + 0.5px)) translateZ(0);
+  }
+
+  50% {
+    transform-origin: right;
+    transform: scaleX(0) translateY(calc(-50% + 0.5px)) translateZ(0);
+  }
+
+  51% {
+    transform-origin: left;
+  }
+
+  100% {
+    transform: scaleX(1.2) translateY(calc(-50% + 0.5px)) translateZ(0);
+    transform-origin: left;
+  }
+}

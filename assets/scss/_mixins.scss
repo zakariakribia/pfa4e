@@ -1,0 +1,62 @@
+/*------------------------------------
+	Global Mixins
+------------------------------------*/
+
+// Core Components
+@import "base/mixins/background-cover";
+@import "base/mixins/badge";
+@import "base/mixins/border-radius";
+@import "base/mixins/buttons";
+@import "base/mixins/content-centered";
+@import "base/mixins/gradients";
+@import "base/mixins/icons";
+@import "base/mixins/input";
+@import "base/mixins/label";
+@import "base/mixins/media";
+@import "base/mixins/sizing";
+
+
+@mixin FX__fix_fixed_position_lags() {
+	// webkit hack for smooth font view on fixed positioned elements
+	-webkit-backface-visibility:hidden; 
+	backface-visibility:hidden; 
+}
+
+@mixin FX__fix_animation_lags() {
+    transform: translateZ(0); 
+    -webkit-transform-style: preserve-3d;
+}
+
+@mixin FX__attr($attr, $value, $important: '') {
+    @if  $value != null  {
+        #{$attr}: #{$value} #{$important}; 
+    } 
+}
+
+@mixin FX__hack_ie {
+	@media screen\0 {
+		@content;
+	}
+}
+
+@mixin FX__hack_edge_all {
+	@supports (-ms-ime-align:auto) {
+		@content;
+	}
+}
+
+
+@mixin FX__hover_transition {
+    transition: $FX-transition;
+
+    &:hover {
+        transition: $FX-transition;
+    }
+}
+
+@mixin FX__transition {
+    transition: $FX-transition;
+}
+
+
+

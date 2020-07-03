@@ -1,0 +1,99 @@
+/*------------------------------------
+	Tables
+------------------------------------*/
+.table {
+	thead {
+
+		th,
+		td {
+			font-weight: 500;
+			border-bottom-width: 1px;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+	}
+
+	tr.table-active { 
+		td,
+		th {
+			color: FX__color_state(brand, inverse);
+		}
+	}
+
+	&.table-head-noborder {
+		thead {
+
+			th,
+			td {
+				border-top: 0;
+			}
+		}
+	}
+
+	&.table-head-solid {
+		thead {
+
+			th,
+			td {
+				background-color: FX__color_base(grey, 1);
+			}
+		}
+	}
+}
+
+.table:not(.table-bordered) {
+	thead { 
+		th,
+		td {
+			border-top: 0;
+		}
+	}
+}
+
+// Colors To Edit
+.thead-primary,
+.thead-secondary,
+.thead-success,
+.thead-danger,
+.thead-warning,
+.thead-info,
+.thead-light,
+.thead-dark {
+	color: #fff;
+}
+
+.thead-primary th,
+.thead-secondary th,
+.thead-success th,
+.thead-danger th,
+.thead-warning th,
+.thead-info th,
+.thead-light th,
+.thead-dark th {
+	border-top-width: 0;
+}
+
+.thead-primary+tbody tr:first-child th,
+.thead-primary+tbody tr:first-child td,
+.thead-secondary+tbody tr:first-child th,
+.thead-secondary+tbody tr:first-child td,
+.thead-success+tbody tr:first-child th,
+.thead-success+tbody tr:first-child td,
+.thead-danger+tbody tr:first-child th,
+.thead-danger+tbody tr:first-child td,
+.thead-warning+tbody tr:first-child th,
+.thead-warning+tbody tr:first-child td,
+.thead-info+tbody tr:first-child th,
+.thead-info+tbody tr:first-child td,
+.thead-light+tbody tr:first-child th,
+.thead-light+tbody tr:first-child td,
+.thead-dark+tbody tr:first-child th,
+.thead-dark+tbody tr:first-child td {
+	border-top-width: 0;
+}
+
+@each $name, $color in $FX-colors-state {
+.thead-#{$name} {
+			background: FX__get($FX-colors-state, $name, base);
+	}
+}

@@ -1,0 +1,46 @@
+/*------------------------------------
+	Background Overlay Gradients
+------------------------------------*/
+[class*="fx-gradient-overlay"] {
+	position: relative;
+	z-index: 1;
+}
+
+[class*="fx-gradient-overlay"]::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	right: 0;
+	// z-index: -1;
+	width: 100%;
+	height: 100%;
+	content: "";
+}
+.YTPOverlay {
+	opacity: FX__get($FX-gradient-overlay, dark, opacity);
+	background-color: FX__get($FX-gradient-overlay, dark,end); 
+}
+@each $name, $color in $FX-gradient-overlay {
+	.fx-gradient-overlay-#{$name}-to-top::before {
+		@include gradient_y(FX__get($color,start), FX__get($color,end), 100%, bottom);
+		opacity: FX__get($color, opacity);  
+	}
+	.fx-gradient-overlay-#{$name}-to-bottom::before {
+		@include gradient_y(FX__get($color,start), FX__get($color,end), 100%, top);
+		opacity: FX__get($color, opacity); 
+	}
+	.fx-gradient-overlay-#{$name}-to-top-half::before {
+		@include gradient_y(FX__get($color,start), FX__get($color,end), 50%, bottom);
+		opacity: FX__get($color, opacity);  
+	}
+	.fx-gradient-overlay-#{$name}-to-bottom-half::before {
+		@include gradient_y(FX__get($color,start), FX__get($color,end), 50%, top);
+		opacity: FX__get($color, opacity); 
+	}
+	.fx-gradient-overlay-#{$name}-full::before {
+		opacity: FX__get($color, opacity);
+		background-color: FX__get($color,end); 
+	}
+}
+

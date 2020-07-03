@@ -1,0 +1,39 @@
+//
+// Mixins
+//
+
+@mixin FX__spinner_size($size) {
+	&:before {
+		width: FX__get($FX-spinner-config, size, $size);
+		height: FX__get($FX-spinner-config, size, $size);
+		margin-top: -(FX__get($FX-spinner-config, size, $size)/2);
+	}
+
+	&.fx-spinner-center {
+		&:before {
+			left: 50%;
+			margin-left: -(FX__get($FX-spinner-config, size, $size)/2);
+		}
+	}
+
+	&.fx-spinner-left {
+		&:before {
+			left: 0;
+			right: auto;
+		}
+	}
+
+	&.fx-spinner-right {
+		&:before {
+			left: auto;
+			right: 0;
+		}
+	}
+}
+
+@mixin FX__spinner_skin($color) {
+	&:before {
+		border: 2px solid $color;
+		border-right: 2px solid transparent;
+    }
+}

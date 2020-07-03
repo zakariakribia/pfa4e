@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit DirecteurPedagogique{% endblock %}
+
+{% block body %}
+    <h1>Edit DirecteurPedagogique</h1>
+
+    {{ include('directeur_pedagogique/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('directeur_pedagogique_index') }}">back to list</a>
+
+    {{ include('directeur_pedagogique/_delete_form.html.twig') }}
+{% endblock %}

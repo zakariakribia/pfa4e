@@ -1,0 +1,259 @@
+// Functions
+@import "functions";
+
+// Mixins
+@import "mixins";
+
+// Global rounded border mode
+$FX-rounded: true !default;
+
+// Border Radius
+$FX-border-radius: 4px !default;
+
+// Core Icons 
+$FX-action-icons: (
+    down: '\f107',
+    up: '\f106',
+    left: '\f104',  
+    right: '\f105',
+    plus: '\f067',
+    minus: '\f068'
+) !default;
+
+// Elevate shadow
+$FX-elevate-shadow: 0px 0px 13px 0px rgba(82,63,105,0.05) !default;
+$FX-elevate-shadow-2: 0px 0px 13px 0px rgba(82,63,105,0.1) !default;
+
+// Dropdown shadow
+$FX-dropdown-shadow: 0px 0px 50px 0px rgba(82,63,105, 0.15) !default;
+
+// Transition
+$FX-transition: all 0.3s !default;
+
+// Modal Z-index
+$FX-modal-zindex: 1050 !default;
+
+// dropdown Z-index
+$FX-dropdown-zindex: 95 !default;
+
+// State colors
+$FX-colors-state: (
+    brand: ( 
+        base: #3719ea,
+        inverse: #ffffff
+    ),
+    light: (
+        base: #ffffff,
+        inverse: #282a3c 
+    ),
+    dark: ( 
+        base: #0a0a0a,
+        inverse: #ffffff 
+    ),
+    
+    // Bootstrap states
+    primary: ( 
+        base: #1228d1,
+        inverse: #ffffff
+    ),
+    success: ( 
+        base: #1dc9b7,
+        inverse: #ffffff
+    ),
+    info: ( 
+        base: #5578eb,
+        inverse: #ffffff
+    ),
+    warning: ( 
+        base: #ffb822,
+        inverse: #111111
+    ),
+    danger: ( 
+        base: #fd397a,
+        inverse: #ffffff
+    )    
+)!default;
+
+// State colors for navbar
+$FX-colors-navbar: (
+    dark: (
+        base: rgba(0,0,0,100),
+        secondary: #0a0a0a,
+        inverse: #d5d5d5,
+        border: #0a0a0a
+    ), 
+    light: (
+        base: #fff,
+        secondary: #F9F9F9,
+        inverse: #22262b,
+        border: #f0f0f0
+    ),
+    gradient: (
+        base: linear-gradient(112deg, #3719ea 0%, #254e9f 100%),
+        secondary: #232323,
+        inverse: #fff,
+        border: #f0f0f0
+    )  
+)!default;
+
+// State colors for SoidePanel
+$FX-colors-sidepanel: ( 
+    dark: (
+        text: #d5d5d5,
+        secondary: #101924,
+        base: #101924,
+        inverse: #ffffff, //used on hover
+        border: #282e34,
+        overlay: rgba(10, 10, 10, .85)
+    ), 
+    light: (
+        text: #222,
+        secondary: #F9F9F9,
+        base: #fff,
+        inverse: #22262b,
+        border: #f0f0f0,
+        overlay: rgba(10, 10, 10, .85)
+    ),   
+)!default;
+
+// Base colors
+$FX-colors-base: (
+    label: (
+        1: #adb1c7,
+        2: #a7abc3,
+        3: #6c7293,
+        4: #464457
+    ),
+    shape: (
+        1: #f0f3ff,
+        2: #e8ecfa, 
+        3: #93a2dd,
+        4: #646c9a
+    ),    
+    grey: (
+        1: #f7f8fa, //#f4f5f8
+        2: #ebedf2,
+        3: darken(#ebedf2, 3%),
+        4: darken(#ebedf2, 6%)
+    )    
+) !default;
+
+// Social network colors
+$FX-colors-media: (
+    facebook: (
+        base: #3b5998,
+        inverse: #ffffff
+    ),
+    google: (
+        base: #dc4e41,
+        inverse: #ffffff
+    ),
+    twitter: (
+        base: #4AB3F4,
+        inverse: #ffffff
+    ),
+    instagram: (
+        base: #517fa4,
+        inverse: #ffffff
+    ),
+    youtube: (
+        base: #b31217,
+        inverse: #ffffff
+    ),
+    linkedin: (
+        base: #0077b5,
+        inverse: #ffffff
+    )
+) !default;
+
+
+// Gradient Background / overlay
+$FX-gradient-overlay: (
+    dark: (
+        start: rgba(15,15,15,0),
+        end: rgba(15,15,15,.75),
+        opacity: .9
+    )
+) !default; 
+
+// Root Font Settings
+$font-family-default: 'IBM Plex Sans';
+$font-family-secondary: 'Roboto';
+
+$FX-font-families: (
+    navbar: 'IBM Plex Sans',
+    regular: 'IBM Plex Sans',  
+    heading: 'IBM Plex Sans',
+    text: 'Roboto',
+    button: 'IBM Plex Sans'
+) !default; 
+
+// Root Font Settings
+$FX-font-size: (
+    size: (
+        desktop: 14px,
+        tablet: 14px,
+        mobile: 13px
+    ), 
+    weight: 400
+) !default; 
+
+// General Link Settings
+$FX-font-color: (
+    text: #232323,
+    navlinks: (
+        default: #000,
+        hover: darken(FX__color_state(brand), 6%)
+    ),
+    link: (
+        default: FX__color_state(brand),
+        hover: darken(FX__color_state(brand), 6%)
+    )
+) !default; 
+
+// Boxes settings
+$FX-card: (
+    min-height: (
+        default: (
+            desktop: 60px,
+            mobile: 50px
+        ),
+        sm: (
+            desktop: 50px,
+            mobile: 40px
+        ),
+        lg: (
+            desktop: 80px,
+            mobile: 60px
+        ),
+        xl: (
+            desktop: 100px,
+            mobile: 80px
+        )
+    ),
+    space: (
+        desktop: 25px,
+        mobile: 15px
+    ),
+    bottom-space: (
+        desktop: 20px,
+        mobile: 20px
+    ),
+    border-color: FX__color_base(grey, 2),
+    bg-color: #ffffff,
+    shadow: 0px 0px 30px 0px rgba(82,63,105,0.05)
+) !default;
+
+// Page padding
+$FX-page-padding: (
+    desktop: 25px,
+    mobile: 15px
+) !default;
+
+// Custom Scroll(Perfect Scrollbar) size
+$FX-custom-scroll-size: 4px !default;
+
+
+// Theme mixins
+@import "base/mixins/spinner";
+@import "base/mixins/link";

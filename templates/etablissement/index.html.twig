@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissement index{% endblock %}
+
+{% block body %}
+    <h1>Etablissement index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Password</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Deleted</th>
+                <th>NomEtablissement</th>
+                <th>Logo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etablissement in etablissements %}
+            <tr>
+                <td>{{ etablissement.id }}</td>
+                <td>{{ etablissement.pseudo }}</td>
+                <td>{{ etablissement.nom }}</td>
+                <td>{{ etablissement.prenom }}</td>
+                <td>{{ etablissement.password }}</td>
+                <td>{{ etablissement.adresse }}</td>
+                <td>{{ etablissement.email }}</td>
+                <td>{{ etablissement.telephone }}</td>
+                <td>{{ etablissement.deleted ? 'Yes' : 'No' }}</td>
+                <td>{{ etablissement.nomEtablissement }}</td>
+                <td>{{ etablissement.logo }}</td>
+                <td>
+                    <a href="{{ path('etablissement_show', {'id': etablissement.id}) }}">show</a>
+                    <a href="{{ path('etablissement_edit', {'id': etablissement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('etablissement_new') }}">Create new</a>
+{% endblock %}

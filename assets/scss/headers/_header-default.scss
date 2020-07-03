@@ -1,0 +1,215 @@
+/* ==============================
+	Main Menu Navbra
+============================== */
+
+/*************************************
+*************** Menu Logo ***********
+*************************************/
+.nav-logo-wrap {
+	float: left;
+	margin-right: 20px;
+	.logo {
+		display: table-cell;
+		vertical-align: middle;
+		max-width: 300px;
+		height: 75px;
+		transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+		&:before,
+		&:after {
+			display: none;
+		}
+	}
+}
+
+/*************************************
+*************** Main Nav ***********
+*************************************/
+.is-sticky > .main-nav {
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.03) !important;
+}
+.main-nav {
+	position: relative;
+	width: 100%;
+	height: 75px !important;
+	z-index: 1030;
+	top: 0;
+	left: 0;
+	transition: height 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+
+	&.transparent,
+	&.default-transparent {
+		background: transparent !important;
+	}
+
+	&.covered { 
+		.inner-nav ul li {
+			margin-left: 10px;
+			a.active {
+				background: rgba(255, 255, 255, 0.13);
+			}
+		}
+	}
+
+	&.js-transparent {
+		transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+	}
+
+	&.js-stick {
+		right:0px;
+		left: 0px;
+	}
+}
+
+/*************************************
+*************** Inner NAV  ***********
+*************************************/
+.inner-nav {
+	display: inline-block;
+	position: relative;
+	ul {
+		float: right;
+		margin: auto;
+		font-size: .89rem;
+		font-weight: 600;
+		text-transform: initial;
+		text-align: center;
+		line-height: 1.3;
+
+		li {
+			float: left;
+			margin-left: 30px;
+			position: relative;
+
+			a {
+				font-size: 1rem;
+				font-family: FX__get($FX-font-families, navbar);
+				display: inline-block;
+				box-sizing: border-box;
+				text-decoration: none;
+				transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+				font-weight: 700;
+				padding: 0 10px;
+				
+				span {
+					font-family: FX__get($FX-font-families, navbar);
+					font-weight: 700;
+					&:not(.badge) {
+						line-height: 2;
+					}
+				}
+				&:hover,
+				&.active {
+					text-decoration: none;
+				}
+			}
+			.menu-link {
+				height: $nav-small-height !important;
+				line-height: $nav-small-height !important;
+			}
+			.mn-sub {
+				li a {
+					display: block;
+					width: 100%;
+					height: auto !important;
+					line-height: 1.3 !important;
+					position: relative;
+					margin: 0;
+					padding: 1rem 1rem;
+					text-align: left;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	li {
+		.mn-sub {
+			display: none;
+			width: 200px;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			padding: 0;
+			li {
+				display: block;
+				width: 100%;
+				margin: 0 !important;
+		
+				ul {
+					left: 103%;
+					right: auto;
+					top: 0;
+				}
+			}
+			&.menu-bg-hover-sub a:hover {
+				z-index: 11; 
+				transition: background 300ms ease-in-out;
+			}
+			&.to-left {
+				left: auto;
+				right: 0;
+			}
+		}/* ./END mn-Sub */
+
+		&:last-child .mn-sub li ul,
+		.mn-sub li ul.to-left {
+			left: auto;
+			right: 100%;
+			top: 0;
+			border-left: none;
+		}
+
+		&.js-opened .mn-sub {
+			opacity: 1;
+		}
+	}
+
+	> ul > li:last-child .mn-sub {
+		left: auto;
+		right: 0;
+	}
+	.clearlist,
+	.clearlist li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		background: none;
+	}
+
+	.mn-has-multi {
+		width: auto;
+		text-align: left; 
+		.mn-sub-multi {
+			max-width: 190px !important;
+			min-width: 140px !important;
+			overflow: hidden;
+			white-space: normal;
+			// float: none !important;
+			display: inline-block !important;
+			vertical-align: top;
+			> ul {
+				width: auto;
+				margin: 0;
+				padding: 0;
+				float: none;
+			}
+		}
+	}
+}
+
+/*************************************
+*************** Sticky Wrap  ***********
+*************************************/
+.mobile-on .logo > {
+	.logo-default {
+		display: none !important;
+	}
+	.logo-sticky,
+	.logo-mobile {
+		display: block !important;
+	}
+}
+.logo-mobile {
+	display: none;
+}
+@import './menu-componnets/hamburger-menu';

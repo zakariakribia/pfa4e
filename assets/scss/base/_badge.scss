@@ -1,0 +1,295 @@
+/*------------------------------------
+	Badges
+------------------------------------*/
+$fx-dot-badge-size: 6px;
+$badge-dots-size-xs: 5px;
+$badge-dots-size-md: 8px;
+$badge-dots-size-lg: 10px;
+
+%extend_position_abs {
+	position: absolute;
+}
+
+.fx-badge {
+	padding: 0;
+	margin: 0;
+	margin-bottom: .25rem;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	font-size: 0.8rem;
+	height: 18px;
+	width: 18px;
+	&.fx-badge-auto {
+		height: auto;
+		width: auto;
+	}
+	// Sizing
+	&.fx-badge-md {
+		height: 24px;
+		width: 24px;
+		font-size: 1rem;
+	}
+
+	&.fx-badge-lg {
+		height: 35px;
+		width: 35px;
+		font-size: 1rem;
+	}
+
+	&.fx-badge-xl {
+		height: 50px;
+		width: 50px;
+		font-size: 1.1rem;
+		font-weight: 500;
+	}
+	&.fx-badge-xxl {
+		height: 100px;
+		width: 100px;
+		font-size: 3rem;
+		font-weight: 500;
+		> svg {
+			width: 100px;
+			height: 100px;
+		}
+	}
+
+	// Pics
+	&.fx-badge-group {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+
+		.fx-badge-mutual {
+			border-radius: 50%;
+			width: 2.5rem;
+			height: 2.5rem;
+			overflow: hidden;
+			margin-left: -0.7rem;
+			border: 2px solid #ffffff;
+			background-color: #f0f3ff;
+			color: #a1a8c3;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 500;
+			position: relative;
+			transition: transform 400ms ease-in-out;
+			cursor: pointer;
+
+			img {
+				width: 100%;
+			}
+
+			&.fx-badge-last {
+				font-size: 1rem;
+				font-weight: 500;
+			}
+			&.hover-scale:hover {
+				z-index: 2;
+				transform: scale(1.5);
+			}
+			&.hover-up:hover {
+				z-index: 2;
+				transform: translateY(-10px);
+			}
+		}
+	}
+
+	&.fx-badge-processing {
+		position: relative;
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			border: 1px solid;
+			content: '';
+			animation: aniStatusProcessing 1.2s infinite ease-in-out;
+		}
+	}
+
+	// Rect mode
+	&.fx-badge-rect {
+		height: 0;
+		width: auto;
+		padding: 0.75rem 0.75rem;
+
+		// Sizing
+		&.fx-badge-md {
+			padding: 0.8rem 0.6rem;
+		}
+
+		&.fx-badge-lg {
+			padding: 0.9rem 0.7rem;
+		}
+
+		&.fx-badge-xl {
+			padding: 1rem 0.8rem;
+		}
+
+		@include FX__rounded {
+			border-radius: $FX-border-radius;
+		}
+	}
+
+	// Pill mode
+	&.fx-badge-pill {
+		border-radius: 2rem;
+	}
+
+	// Rounded
+	&.fx-badge-rounded {
+		border-radius: $FX-border-radius;
+	}
+
+	// Square mode
+	&.fx-badge-square {
+		border-radius: 0;
+	}
+
+	// Dot style 
+	&.fx-badge-dot {
+		display: inline-block;
+		line-height: $fx-dot-badge-size;
+		min-height: $fx-dot-badge-size;
+		min-width: $fx-dot-badge-size;
+		height: $fx-dot-badge-size;
+		width: $fx-dot-badge-size;
+		font-size: 0;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	&.fx-badge-dots-xs {
+		line-height: $badge-dots-size-xs;
+		min-height: $badge-dots-size-xs;
+		min-width: $badge-dots-size-xs;
+		height: $badge-dots-size-xs;
+		width: $badge-dots-size-xs;
+	}
+
+	&.fx-badge-dots-md {
+		line-height: $badge-dots-size-md;
+		min-height: $badge-dots-size-md;
+		min-width: $badge-dots-size-md;
+		height: $badge-dots-size-md;
+		width: $badge-dots-size-md;
+	}
+
+	&.fx-badge-dots-lg {
+		line-height: $badge-dots-size-lg;
+		min-height: $badge-dots-size-lg;
+		min-width: $badge-dots-size-lg;
+		height: $badge-dots-size-lg;
+		width: $badge-dots-size-lg;
+	}
+
+	// State colors
+	@each $name,
+	$color in $FX-colors-state {
+		&.fx-badge-#{$name} {
+			color: FX__get($color, inverse);
+			background: FX__get($color, base);
+		}
+
+		&.fx-badge-outline.fx-badge-#{$name} {
+			background: transparent;
+			color: FX__get($color, base);
+			border: 1px solid FX__get($color, base);
+
+			&.fx-badge-outline-2x {
+				border: 2px solid FX__get($color, base);
+			}
+		}
+		&.fx-badge-transparent-#{$name} {
+			color: FX__get($color, base);
+			background: rgba(FX__get($color, base), 0.1);
+		}
+		&.fx-badge-processing-#{$name} {
+			color: FX__get($color, inverse);
+			background-color: FX__get($color, base);
+			&:after {
+				border-color: FX__get($color, base);
+			}
+		}
+	}
+	// Badges with Avatars
+	.fx-badge-position {
+		position: absolute;
+		top: auto;
+		left: auto;
+		&:not([class*="-top-left"]):not([class*="-bottom-left"]):not([class*="-bottom-right"]) { 
+			$transform: 20%;
+			top: 1px;
+			right: 1px;
+			transform: translate($transform, -$transform);
+		} 
+		$transform: 35%;
+		&-bottom-right {  
+			bottom: 1px;
+			right: 1px;
+			transform: translate($transform, $transform);
+		}
+		&-bottom-left { 
+			bottom: 1px;
+			left: 1px;
+			transform: translate(-$transform, $transform);
+		}
+		&-top-left { 
+			top: 1px;
+			left: 1px;
+			transform: translate(-$transform, -$transform);
+		}
+	}
+	&[class*="-rounded"],
+	&[class*="-pill"] {
+		$transform: 50%;
+		> .fx-badge-position {
+			position: absolute;
+			top: auto;
+			left: auto;
+			&:not([class*="-top-left"]):not([class*="-bottom-left"]):not([class*="-bottom-right"]) { 
+				top: 1px;
+				right: 1px;
+				transform: translate($transform, -$transform);
+			}
+			&-bottom-right {  
+				bottom: 1px;
+				right: 1px;
+				transform: translate($transform, $transform);
+			}
+			&-bottom-left { 
+				bottom: 1px;
+				left: 1px;
+				transform: translate(-$transform, $transform);
+			}
+			&-top-left { 
+				top: 1px;
+				left: 1px;
+				transform: translate(-$transform, -$transform);
+			}
+		}
+	}
+
+	// svg icon 
+	> svg {
+		width: 1em !important;
+		height: 1em !important;
+	}
+}
+
+@keyframes aniStatusProcessing {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}

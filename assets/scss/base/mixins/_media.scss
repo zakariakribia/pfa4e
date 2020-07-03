@@ -1,0 +1,100 @@
+/*------------------------------------
+	Breakpoint mixins
+------------------------------------*/
+
+@mixin FX__media_below($width) {
+    @media (max-width: #{FX__media_breakpoint($width)}) {
+        @content;
+    }
+}
+
+@mixin FX__media_above($width) {
+    @media (min-width: #{FX__media_breakpoint($width)}) {
+        @content;
+    }
+}
+
+@mixin FX__media_range($from, $to) {
+    @media (min-width: #{FX__media_breakpoint($from)}) and (max-width: #{FX__media_breakpoint($to)}) {
+        @content;
+    }
+}
+
+@mixin FX__minimal_desktop {
+    @media (min-width: #{FX__media_breakpoint(lg)}) and (max-width: #{FX__media_breakpoint(xl)}) {
+        @content;
+    }
+}
+
+@mixin FX__minimal_desktop_and_below {
+    @media (max-width: #{FX__media_breakpoint(xl)}) {
+        @content;
+    }
+}
+
+@mixin FX__desktop {
+    @media (min-width: #{FX__media_breakpoint(lg)}) {
+        @content;
+    }
+}
+
+@mixin FX__desktop_xl {
+    @media (min-width: #{FX__media_breakpoint(xl)}) {
+        @content;
+    }
+}
+
+@mixin FX__desktop_xxl {
+    @media (min-width: #{FX__media_breakpoint(xxl)}) {
+        @content;
+    }
+}
+
+@mixin FX__desktop_and_tablet {
+    @media (min-width: #{FX__media_breakpoint(md)}) {
+        @content;
+    }
+}
+
+@mixin FX__tablet {
+    @media (min-width: #{FX__media_breakpoint(md)}) and (max-width: #{FX__media_breakpoint(lg)}) {
+        @content;
+    }
+}
+
+//used
+@mixin FX__tablet_and_mobile {
+    @media (max-width: #{FX__media_breakpoint(lg)}) {
+        @content;
+    }
+}
+
+@mixin FX__mobile {
+    @media (max-width: #{FX__media_breakpoint(md)}) {
+        @content;
+    }
+} 
+
+@mixin FX__mobile_sm {
+    @media (max-width: #{FX__media_breakpoint(sm)}) {
+        @content;
+    }
+} 
+
+@mixin FX__responsive_below($width) {
+    @media (max-width: #{$width}) {
+      @content;
+    }
+}
+
+@mixin FX__responsive_above($width) {
+    @media (min-width: #{$width}) {
+      @content;
+    }
+}
+
+@mixin FX__responsive_range($from, $to) {
+    @media (min-width: #{$from}) and (max-width: #{$to}) {
+      @content;
+    }
+}

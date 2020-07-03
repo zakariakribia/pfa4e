@@ -1,0 +1,119 @@
+/*------------------------------------
+	Divider
+------------------------------------*/
+
+.fx-divider {
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: FX__color_base(grey, 2);
+
+  &.fx-divider-horizontal {
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 24px 0;
+    clear: both;
+
+    &.fx-divider-with-text-center,
+    &.fx-divider-with-text-left,
+    &.fx-divider-with-text-right {
+      display: table;
+      white-space: nowrap;
+      text-align: center;
+      background: 0 0;
+      font-weight: 500;
+      font-size: 16px;
+      margin: 16px 0;
+    }
+
+    &.fx-divider-with-text-center {
+
+      &:after,
+      &:before {
+        content: "";
+        display: table-cell;
+        position: relative;
+        top: 50%;
+        width: 50%;
+        border-top: 1px solid FX__color_base(grey, 2);
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+      }
+    }
+
+    &.fx-divider-with-text-left,
+    &.fx-divider-with-text-right {
+
+      &:after,
+      &:before {
+        content: "";
+        display: table-cell;
+        position: relative;
+        top: 50%;
+        width: 50%;
+        border-top: 1px solid FX__color_base(grey, 2);
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+      }
+    }
+
+    &.fx-divider-with-text-left {
+      &:before {
+        width: 5%;
+      }
+
+      &:after {
+        width: 95%;
+      }
+    }
+
+    &.fx-divider-with-text-right {
+      &:after {
+        width: 5%;
+      }
+
+      &:before {
+        width: 95%;
+      }
+    }
+  }
+
+  .fx-divider-inner-text {
+    display: inline-block;
+    padding: 0 24px;
+  }
+}
+
+.fx-divider,
+.fx-divider-vertical {
+  margin: 0 8px;
+  display: inline-block;
+  height: .9em;
+  width: 1px;
+  vertical-align: middle;
+  position: relative;
+  top: -.06em;
+}
+
+.fx-divider-dashed {
+  background: 0 0;
+  border-top: 1px dashed FX__color_base(grey, 2);
+}
+
+.fx-divider-2x {
+  border-width: 2px;
+  height: 2px !important;
+}
+
+// States
+@each $name,
+$color in $FX-colors-state {
+  &.fx-divider-#{$name} {
+    border-top-color: FX__get($color, base) !important;
+    background: FX__get($color, base) !important;
+  }
+}

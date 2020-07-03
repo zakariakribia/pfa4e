@@ -1,0 +1,126 @@
+html,
+body {
+    padding: 0px;
+    font-size: FX__get($FX-font-size, size, desktop);
+    font-weight: FX__get($FX-font-size, weight);
+    font-family: #{FX__get($FX-font-families, regular)};
+
+    a:hover,
+    a:active,
+    a:focus {
+        text-decoration: none !important;
+    }
+
+    a,
+    button {
+        outline: none !important;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-family: #{FX__get($FX-font-families, heading)};
+    }
+    p,
+    a,
+    span {
+        font-family: #{FX__get($FX-font-families, text)};
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    color: FX__get($FX-font-color, text);
+}
+
+.img-fit-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@include media_breakpoint_up(lg) {
+    .mt-lg-nx {
+        margin-top: -11rem;
+    }
+}
+
+@include FX__tablet {
+    html,
+    body {
+        font-size: FX__get($FX-font-size, size, tablet);
+    }
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@include FX__mobile {
+    html,
+    body {
+        font-size: FX__get($FX-font-size, size, mobile);
+    }
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+/*------------------------------------
+    Helpers
+------------------------------------*/
+// General helpers
+.fx-valign-top {
+	vertical-align: top;
+} 
+
+.fx-valign-middle {
+	vertical-align: middle;
+}
+
+.fx-valign-bottom {
+	vertical-align: bottom;
+}
+
+.fx-block-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.fx-icon-middle {
+	&:before {
+		vertical-align: middle;
+	}
+}
+
+// Responsive Helpers
+
+@mixin FX__clearfix {
+	&::after {
+		display: block;
+		clear: both;
+		content: ""; 
+	}
+}
+
+// Rounded
+.fx-rounded {
+	border-radius: $FX-border-radius !important;
+}
+.border-2x,
+.border-3x {
+    border-style: solid;
+}
+.border-2x {
+    border-width: 2px;
+}
+.border-3x {
+    border-width: 3px;
+}
+.border-light-2x {
+	border: 2px solid #fff;
+}
+.border-light-4x {
+	border: 4px solid #fff;
+}
+
+textarea {
+	min-height: 200px;
+}
