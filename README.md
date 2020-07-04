@@ -37,7 +37,7 @@ Installation
 ### 1. Clone or download repository
 
 ```
-git clone https://github.com/soyaDiallo/pfa4e.git
+git clone -b demande https://github.com/soyaDiallo/pfa4e.git
 
 cd pfa4e
 ```
