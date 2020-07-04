@@ -16,16 +16,16 @@ mieux que windows cmd
 
 utilizer **YouTube** :)
 
-dans cette branche j'ai deja installer -bootstrap -jquery -datatables -select2
-les gens qui ne sont pas commencés
-vous pouvez commencer de cette point pour sauvegarder un peu de temps et pour que nous tous reste sur la même structure
+* dans cette branche j'ai deja installer -bootstrap -jquery -datatables -select2
+* les gens qui ne sont pas commencés
+* vous pouvez commencer de cette point pour sauvegarder un peu de temps et pour que nous tous reste sur la même structure
 
 a cette point je pense que vous avez deja installé tous ce qui est on haut
 
-ouvrir cmder 
-aller sur n'import qu'il place
-vous étes pas obligé de mettre les fichier dans htdocs ou www.
-par example desktop 
+* ouvrir cmder 
+* aller sur n'import qu'il place
+* vous étes pas obligé de mettre les fichier dans htdocs ou www.
+* par example desktop 
 
 ```
 cd desktop
@@ -89,12 +89,12 @@ yarn watch
     
 ### 6. pour les fichier static utilizer folder (assets)
    - assets/scss 
-    	* vous pouves ecrire simple css si vous ete pas fimillier avec scss
-        * vous trouver un fichier avec le nom assets/scss/_style.scss
-      	* ecrire votre code la bas
+    	* vous pouvez ecrire simple css si vous ete pas familier avec scss
+        * vous trouvez un fichier avec le nom assets/scss/_style.scss
+      	* écrire votre code la bas
       
    - assets/js
-     	*ecrire votre code dans assets/js/script.js
+     	* ecrire votre code dans assets/js/script.js
    - assets/images/
     
  
