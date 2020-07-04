@@ -8,6 +8,8 @@ je vais commencer par les choose que je pense vous avez bousoin pour commecer et
 * installer **composer** [https://getcomposer.org/](https://getcomposer.org/)
 * installer **git** [https://git-scm.com/](https://git-scm.com/)
 * installer **nodejs** [https://nodejs.org/en/](https://nodejs.org/en/)
+* installer **symfony** [https://symfony.com/download](https://symfony.com/download)
+* installer **yarn** [https://classic.yarnpkg.com/en/docs/install/#windows-stable](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
 
 
 si vous voulez vous pouvez aussi utiliser **cmder**
