@@ -496,7 +496,7 @@
             "./config/packages/webpack_encore.yaml",
             "./package.json",
             "./webpack.config.js"
-        ]
+        ],
     "symfony/web-server-bundle": {
         "version": "3.3",
         "recipe": {
@@ -524,4 +524,5 @@
     "zendframework/zend-eventmanager": {
         "version": "3.2.1"
     }
+}
 }
