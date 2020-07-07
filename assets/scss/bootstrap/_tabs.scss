@@ -1,0 +1,142 @@
+/*------------------------------------
+	Tabs
+------------------------------------*/
+.nav-pills,
+.nav-tabs {
+	margin: 0 0 25px 0;   
+
+	.nav-item {
+		.nav-link {
+			padding: 0.75rem 1.25rem;
+			font-size: 1rem;
+			font-weight: 400;
+			@include FX__transition();
+			@include FX__icons_style(font-size, (fontawesome: 1.2rem));
+			font-size: 1rem;
+			font-weight: 400;
+
+			i {
+				vertical-align: middle;
+				line-height: 0;
+				display: inline-block;  
+				margin-right: 0.5rem;
+			}     
+			
+			&.active,
+			&:active,
+			&:hover {
+				@include FX__transition();
+			}
+		}
+	}
+}
+
+// Default Tabs
+.nav-tabs {
+	.nav-item {
+		.nav-link {
+			color: FX__color_brand();
+			
+			i {
+				color: FX__color_brand();
+			}     
+			
+			&.active,
+			&:active,
+			&:hover {
+				color: FX__color_brand();
+
+				i {
+					color: FX__color_brand();
+				}
+			}
+
+			&.disabled {
+				color: FX__color_base(label, 2);
+
+				i {
+					color: FX__color_base(label, 2);
+				}
+			}
+		}
+
+		&.show > .nav-link {
+			color: FX__color_brand();
+
+			i {
+				color: FX__color_brand();
+			}
+		}
+	}
+}
+
+// Pill Tabs
+.nav-pills {
+	.nav-item {
+		margin-right: 0.5rem;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		.nav-link {
+			color: FX__get($FX-font-color, text);
+
+			&:active,
+			&.active,
+			&.active:hover {
+				background-color: FX__color_brand();
+				color: FX__color_brand(inverse);
+			}
+		}
+
+		&.show > .nav-link {
+			background-color: FX__color_brand();
+			color: FX__color_brand(inverse);
+		}
+	}
+
+	// Sizing
+	&.nav-pills-sm {
+		.nav-item {
+			.nav-link {
+				font-size: 0.9rem;
+				padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+			}
+		}
+	}
+
+	// Bold
+	&.nav-pills-bold {
+		.nav-item {
+			.nav-link {
+				font-weight: 500;
+			}
+		}
+	}
+
+	// Label style
+	&.nav-pills-label {
+		.nav-item {
+	
+			.nav-link {
+				&:active,
+				&.active,
+				&.active:hover {
+					background-color: rgba(FX__color_brand(), 0.1);
+					color: FX__color_brand();
+				}
+			}
+	
+			&.show > .nav-link {
+				background-color: rgba(FX__color_brand(), 0.1);
+				color: FX__color_brand();
+			}
+		}
+	}
+}
+
+// Marginless
+.nav-fit {
+	margin: 0 !important;
+}

@@ -1,4 +1,83 @@
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+	<div class="row">
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_etat" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.etat, 'Demande Etat :') }} 
+		    </label>
+	        {{ form_widget(form.etat, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_dateValidationSecretaire" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.dateValidationSecretaire, 'Date validation secretaire :') }} 
+		    </label>
+	        {{ form_widget(form.dateValidationSecretaire, {'attr': {'class': 'd-flex justify-content-between'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_dateValidationDP" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.dateValidationDP, 'Date validation d p :') }} 
+		    </label>
+	        {{ form_widget(form.dateValidationDP, {'attr': {'class': 'd-flex justify-content-between'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_dateValidationDE" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.dateValidationDE, 'Date validation d e :') }} 
+		    </label>
+	        {{ form_widget(form.dateValidationDE, {'attr': {'class': 'd-flex justify-content-between'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_diplome" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.diplome, 'Diplome :') }} 
+		    </label>
+	        {{ form_widget(form.diplome, {'attr': {'class': 'custom-select-lg'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_secretaire" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.secretaire, 'Secretaire :') }} 
+		    </label>
+	        {{ form_widget(form.secretaire, {'attr': {'class': 'custom-select-lg'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_entreprise" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.entreprise, 'Entreprise :') }} 
+		    </label>
+	        {{ form_widget(form.entreprise, {'attr': {'class': 'custom-select-lg'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_laureat" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.laureat, 'Laureat :') }} 
+		    </label>
+	        {{ form_widget(form.laureat, {'attr': {'class': 'custom-select-lg'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_etablissement" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.etablissement, 'Etablissement :') }} 
+		    </label>
+	        {{ form_widget(form.etablissement, {'attr': {'class': 'custom-select-lg'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="demande_directeurPedagogique" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.directeurPedagogique, 'Directeur pedagogique :') }} 
+		    </label>
+	        {{ form_widget(form.directeurPedagogique, {'attr': {'class': 'custom-select-lg'}}) }}
+	    </div>
+	</div>
+	<div class="text-center mt-4">
+		<button class="btn btn-widest btn-tall btn-primary">
+			<i data-feather="save" class="pr-1"></i>
+			<span class="pr-2">{{ button_label|default('sauvegarder') }}</span>
+		</button>
+	</div>
 {{ form_end(form) }}

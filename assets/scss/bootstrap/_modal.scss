@@ -1,0 +1,114 @@
+/*------------------------------------
+	Modals
+------------------------------------*/
+// Base
+.modal {
+    .modal-content {
+        @include FX__rounded {
+            border-radius: $FX-border-radius;
+        }
+
+        .modal-header {
+            .modal-title {
+                font-weight: 500;
+                font-size: 1.3rem;
+                color: FX__color_base(label, 4);
+            
+                small {
+                    font-weight: 400;
+                    font-size: 0.9rem;
+                    color: FX__color_base(label, 2);
+                }
+            }
+
+            .close {
+                outline:none !important;
+                color: FX__color_base(label, 2);
+            
+                @include FX__hover_transition();
+            
+                &:before {
+                    font-size: 1.3rem;
+                }
+            
+                span {
+                    display: none;
+                }
+            
+                &:hover {
+                    color: FX__color_brand();
+                }
+            }
+        }
+    }
+
+    // Stick to bottom right
+    &.modal-sticky-bottom-right {
+        padding: 0 !important;
+        max-width: 500px;
+        height: auto;
+        position: fixed;
+        left: auto;
+        top: auto;
+        bottom: 25px;
+        right: 25px;
+        margin: 0;
+        box-shadow: 0px 0px 60px -15px rgba(0, 0, 0, 0.2);
+
+        @include FX__rounded {
+            border-radius: $FX-border-radius;
+        }
+        
+        @include FX__tablet_and_mobile {
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        @include FX__mobile {
+            max-width: 90%;
+        }
+        
+        .modal-dialog {
+            position: static;
+            max-width: 500px;
+            width: auto;
+            margin: 0;
+
+            @include FX__rounded {
+                border-radius: $FX-border-radius;
+            }
+            
+            .modal-content {
+                border: 0;
+                @include FX__rounded {
+                    border-radius: $FX-border-radius;
+                }
+            }
+        }
+    }
+}
+
+.modal-open {
+    overflow: auto !important;
+    padding: 0 !important;
+}
+
+.modal-body {
+    &.modal-body-fit {
+        padding: 0;
+    }
+    &.modal-body-x-fit {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    &.modal-body-y-fit {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+@include FX__media_above(xl) {
+    .modal-dialog.modal-xl {
+        max-width: kt-media-breakpoint(xl) - 100px;
+    }
+}

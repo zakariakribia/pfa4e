@@ -1,0 +1,63 @@
+/*------------------------------------
+	Buttons
+------------------------------------*/
+@mixin button_soft($FX-color, $FX-background, $FX-hover-background, $FX-box-shadow) {
+  color: ($FX-color);
+  background: rgba($FX-background, .1);
+  border-color: transparent;
+
+  &[href],
+  &[type] {
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: color-yiq($FX-hover-background);
+      background: ($FX-hover-background);
+      box-shadow: $btn-box-shadow-value rgba($FX-background, 0.35);
+    }
+
+    &.disabled,
+    &:disabled {
+      color: $FX-background;
+      background-color: rgba($FX-background, .1);
+      box-shadow: none;
+    }
+  }
+}
+
+// Icon Buttons
+@mixin button_text($FX-color, $FX-hover-color) {
+  color: ($FX-color);
+  background: transparent;
+
+  &[href],
+  &[type] {
+    &:hover,
+    &:focus,
+    &:active {
+      color: ($FX-hover-color);
+    }
+  }
+}
+
+// OUTSIDE
+@mixin FX__button_reset() {
+  appearance: none;
+  box-shadow: none;
+  border-radius: none; 
+  border: none;
+  cursor: pointer;
+  background: none;
+  outline: none !important; 
+  margin: 0;
+  padding: 0;
+}
+
+@mixin FX__btn_reset() {
+  border: 0;
+  background: none;
+  outline: none !important;
+  box-shadow: none;
+  outline: none !important;
+}

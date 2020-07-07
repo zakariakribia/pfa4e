@@ -1,0 +1,11 @@
+/*------------------------------------
+	Gradients
+------------------------------------*/
+
+// Vertical gradient, from top to bottom
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+@mixin gradient_y($FX-start-color: #000, $FX-end-color: #000, $FX-end-percent: 100%, $to: null) {
+  background: linear-gradient(to $to, $FX-start-color, $FX-end-color $FX-end-percent);
+  background-repeat: repeat-x;
+}

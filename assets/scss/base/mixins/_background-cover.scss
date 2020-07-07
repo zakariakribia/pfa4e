@@ -1,0 +1,8 @@
+/*------------------------------------
+	Background Cover
+------------------------------------*/
+@mixin background_cover($FX-size: cover, $FX-repeat: no-repeat, $FX-positionX: center, $FX-positionY: center) {
+  background-size: $FX-size;
+  background-repeat: $FX-repeat;
+  background-position: $FX-positionX $FX-positionY;
+}

@@ -1,0 +1,13 @@
+/*------------------------------------
+	Opacity
+------------------------------------*/
+// Opacity
+@mixin FX__opacity {
+	@for $i from 1 through 9 {
+		.fx-opacity-#{$i} {
+			opacity: #{$i * 0.1} !important;
+		} 
+	}
+}
+
+@include FX__opacity();

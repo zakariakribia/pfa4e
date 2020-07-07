@@ -1,0 +1,27 @@
+/*------------------------------------
+	Inputs
+------------------------------------*/
+
+// Input placeholder color
+@mixin FX__input_placeholder($color) {
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    // Internet Explorer 10+
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    // Safari and Chrome
+}
+
+@mixin FX__input_reset() {
+	border: 0;
+	background: none;
+	outline: none !important;
+	box-shadow: none;
+}

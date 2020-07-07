@@ -1,0 +1,131 @@
+@mixin DefaultMenu($skin) {
+	.#{$skin}-menu {
+		/*************************************
+		*************** Main Nav ***********
+		*************************************/
+		&.main-nav {
+			background: FX__get($FX-colors-navbar, $skin, base);
+			.inner-nav {
+				ul li {
+					a {
+						color: FX__get($FX-colors-navbar, $skin, inverse);
+						&:hover,
+						&.active {
+							color: FX__get($FX-colors-navbar, $skin, hover);
+						}
+					}
+					.mn-sub {
+						li a {
+							&:hover,
+							&.active {
+								color: FX__color_brand(base);
+							}
+						}
+					}
+				}
+
+				li {
+					.mn-sub {
+						border: 1px solid FX__get($FX-colors-navbar, $skin, border);
+						box-shadow: FX__get($FX-colors-navbar, $skin, shadow);
+					}/* ./END mn-Sub */
+
+					&:last-child .mn-sub li ul,
+					.mn-sub li ul.to-left {
+						border-right: 1px solid FX__get($FX-colors-navbar, $skin, border);
+					}
+				}
+ 
+				@if($skin != "gradient") {
+					li .mn-sub {
+						background: FX__get($FX-colors-navbar, $skin, base);
+						&.menu-bg-hover-sub a:hover {
+							background-color: FX__get($FX-colors-navbar, $skin, secondary); 
+						}
+					}/* ./END mn-Sub */
+				}
+				@else {
+					li .mn-sub {
+						background: FX__get($FX-colors-navbar, $skin, inverse);
+						a {
+							color: FX__get($FX-colors-navbar, $skin, secondary); 
+						}
+					}/* ./END mn-Sub */
+				}
+			}
+		}
+		/*************************************
+		*************** responsive  **********
+		*************************************/
+		@if($skin != "gradient") {
+			.mobile-body-on {
+				&.js-opened:before {
+					background-color: rgba(0, 0, 0, 0.04);
+				}
+			}
+		}
+		&.mobile-on:not(.icons-on-mobile) {
+			&.main-nav {
+				background: FX__get($FX-colors-navbar, $skin, base) !important;
+				&.in-top-for-mobile {
+					border-bottom: 1px solid FX__get($FX-colors-navbar, $skin, border);
+					box-shadow: 0px 8px 8px 2px rgba(0, 0, 0, 0.04);
+				}
+				&.in-bottom-for-mobile {
+					border-top: 1px solid FX__get($FX-colors-navbar, $skin, border);
+					box-shadow: 0px -8px 8px 2px rgba(0, 0, 0, 0.04);
+					.inner-nav {
+						top: auto;
+						bottom: calc(#{$nav-small-height} - 2px);
+						box-shadow: 0px -8px 8px 2px rgba(0, 0, 0, 0.04);
+					}
+				}
+				@if($skin != "gradient") {
+					.inner-nav {
+						ul {
+							background-color: FX__get($FX-colors-navbar, $skin, base);
+							li a {
+								color: FX__get($FX-colors-navbar, $skin, inverse) !important;
+								&:hover,
+								&.active {
+									background: FX__get($FX-colors-navbar, $skin, navbase); 
+									color: FX__get($FX-colors-navbar, $skin, inverse);
+								}
+							}
+						}
+						.mn-sub {
+							background: FX__get($FX-colors-navbar, $skin,  secondary) !important;
+						}
+					}
+					
+				} @else {
+					.inner-nav {
+						background-color: #fff;
+						ul li a {
+							color: FX__get($FX-colors-navbar, $skin, secondary) !important;
+							&:hover,
+							&.active {
+								background: FX__get($FX-colors-navbar, $skin, navbase); 
+								color: FX__get($FX-colors-navbar, $skin, inverse);
+							}
+						}
+					}
+				}
+			}
+			
+
+			.mn-has-sub > svg {
+				border: 1px solid FX__get($FX-colors-navbar, $skin, border);
+			}
+
+			.js-opened > .mn-has-sub > svg {
+				border-color: FX__get($FX-colors-navbar, $skin, border);
+			}
+		}
+		.mobile-nav {
+			i {
+				color : FX__get($FX-colors-navbar, $skin, inverse);
+			}
+		}
+	}
+}

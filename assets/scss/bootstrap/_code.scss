@@ -1,0 +1,11 @@
+/*------------------------------------
+	Code
+------------------------------------*/
+code {
+    background-color: FX__color_base(grey, 1);
+    padding: 0.15rem 0.25rem;
+
+    @include FX__rounded {
+        border-radius: $FX-border-radius;
+    }
+}

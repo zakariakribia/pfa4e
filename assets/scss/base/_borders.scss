@@ -1,0 +1,32 @@
+/*------------------------------------
+	Borders
+------------------------------------*/
+// Default options
+.fx-rounded_pill {
+	@include border_radius($border-radius-pill);
+}
+
+.fx-rounded-top-pill {
+	@include border_top_radius($border-radius-pill);
+}
+
+.fx-rounded-right-pill {
+	@include border_right_radius($border-radius-pill);
+}
+
+.fx-rounded-bottom-pill {
+	@include border_bottom_radius($border-radius-pill);
+}
+
+.fx-rounded-left-pill {
+	@include border_left_radius($border-radius-pill);
+}
+
+// Custom options
+.fx-rounded-top-left-pill {
+	@include border_top_left_radius($border-radius-pill);
+}
+
+.fx-rounded-bottom-left-pill {
+	@include border_bottom_left_radius($border-radius-pill);
+}

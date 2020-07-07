@@ -1,0 +1,65 @@
+/*------------------------------------
+  Position Spaces
+------------------------------------*/
+
+.fx-top-0 {
+  top: 0;
+}
+
+.fx-right-0 {
+  right: 0;
+}
+
+.fx-bottom-0 {
+  bottom: 0;
+}
+
+.fx-left-0 {
+  left: 0;
+}
+
+// Medium Devices
+@include media_breakpoint_up(md) {
+  .fx-top-md-0 {
+    top: 0;
+  }
+
+  .fx-right-md-0 {
+    right: 0;
+  }
+
+  .fx-bottom-md-0 {
+    bottom: 0;
+  }
+
+  .fx-left-md-0 {
+    left: 0;
+  }
+
+  .fx-position-md-absolute {
+    position: absolute;
+  }
+}
+
+// Large Devices
+@include media_breakpoint_up(lg) {
+  .fx-top-lg-0 {
+    top: 0;
+  }
+
+  .fx-right-lg-0 {
+    right: 0;
+  }
+
+  .fx-bottom-lg-0 {
+    bottom: 0;
+  }
+
+  .fx-left-lg-0 {
+    left: 0;
+  }
+
+  .fx-position-lg-absolute {
+    position: absolute;
+  }
+}

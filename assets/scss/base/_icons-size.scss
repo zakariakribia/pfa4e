@@ -1,0 +1,53 @@
+/*------------------------------------
+	Icons Sizes
+------------------------------------*/
+.nav-item {
+    .fx-svg-icon-sm {
+        width: $nav-icon-svg-sm;
+    }
+    .fx-svg-icon-default {
+        width: $nav-icon-svg;
+    }
+    .fx-svg-icon-lg {
+        width: $nav-icon-svg-lg;
+    }
+}
+
+// Icon font sizing
+.fx-icon-sm {
+	font-size: $icon-size-sm !important;
+}
+
+.fx-icon-md {
+	font-size: $icon-size-md !important;
+}
+
+.fx-icon-lg {
+	font-size: $icon-size-lg !important;
+}
+
+.fx-icon-xl {
+	font-size: $icon-size-xl !important;
+}
+
+// Svg Icon Sizing
+.fx-svg-icon-xs {
+    height: $svg-icon-size-xs;
+    width: $svg-icon-size-xs;
+}
+.fx-svg-icon-sm {
+    height: $svg-icon-size-sm;
+    width: $svg-icon-size-sm;
+}
+.fx-svg-icon-md {
+    height: $svg-icon-size-md;
+    width: $svg-icon-size-md;
+}
+.fx-svg-icon-lg {
+    height: $svg-icon-size-lg;
+    width: $svg-icon-size-lg;
+}
+.fx-svg-icon-xl {
+    height: $svg-icon-size-xl;
+    width: $svg-icon-size-xl;
+}

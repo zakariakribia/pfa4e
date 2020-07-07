@@ -1,0 +1,38 @@
+/*------------------------------------
+	Avatar
+------------------------------------*/
+.fx-avatar {
+	position: relative;
+	display: inline-block;
+	width: 3.125rem;
+	height: 3.125rem;
+		
+	&.fx-avatar {
+		&-sm {
+			width: 2rem;
+			height: 2rem;
+		}
+		&-md {
+			width: 4rem;
+			height: 4rem;
+		}
+		&-lg {
+			width: 5rem;
+			height: 5rem;
+		}
+		&-xl {
+			width: 8rem;
+			height: 8rem;
+		}
+	}
+
+	// Rounded
+	&.fx-avatar-rounded {
+		border-radius: $FX-border-radius;
+	}
+
+	// Bordered style
+	&.fx-avatar-bordered {
+		border: 4px solid #ffffff;
+	}
+}

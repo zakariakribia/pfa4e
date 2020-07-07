@@ -1,0 +1,137 @@
+/*------------------------------------
+    Input Icon
+------------------------------------*/
+
+// Config
+$FX-input-icon: (
+	default: (
+		width: 3.2rem,
+		font-size: (
+			IonIcons: 1.3em,
+			fontawesome: 1.2em
+		)
+	),
+	lg: (
+		width: 4.2rem,
+		font-size: (
+			IonIcons: 1.4em,
+			fontawesome: 1.3em
+		)
+	),
+	sm: (
+		width: 2.7rem,
+		font-size: (
+			IonIcons: 1em,
+			fontawesome: 1em
+		)
+	)
+);
+
+// Base
+.fx-input-icon {
+    position: relative;
+    padding: 0;
+    width: 100%;
+
+    // icon input sizing
+    > .fx-input-icon-child {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        top: 0;
+        width: FX__get($FX-input-icon, default, width);
+
+        &.fx-input-icon-child-left {
+            left: 0;
+        }
+
+        &.fx-input-icon-child-right {
+            right: 0;
+        }
+
+        > span {
+            display: flex;
+            align-items: center;    
+            justify-content: center;
+            height: 100%;
+
+            i {
+                display: flex;
+                align-items: center;    
+                justify-content: center;
+                line-height: 0;
+                color: FX__color_base(label, 2);
+            }
+        }
+
+        // set icon sizes
+        @include FX__icons_size( FX__get($FX-input-icon, default, font-size) );
+    }
+
+    .form-control.form-control-lg + .fx-input-icon-child {
+        width: FX__get($FX-input-icon, lg, width);
+
+        // set icon sizes
+        @include FX__icons_size( FX__get($FX-input-icon, lg, font-size) );
+    }
+
+    .form-control.form-control-sm ~ .fx-input-icon-child {
+        width: FX__get($FX-input-icon, sm, width);
+
+        // set icon sizes
+        @include FX__icons_size( FX__get($FX-input-icon, sm, font-size) );
+    }
+
+    // icon input alignments
+    &.fx-input-icon-left {
+        .form-control {
+            padding-left: (FX__get($FX-input-icon, default, width) - 0.4rem);
+
+            &.form-control-lg {
+                padding-left: (FX__get($FX-input-icon, lg, width) - 0.6rem);
+            }
+
+            &.form-control-sm {
+                padding-left: (FX__get($FX-input-icon, sm, width) - 0.2rem);
+            }
+        }
+    }
+
+    &.fx-input-icon-right {
+        .form-control {
+            padding-right: (FX__get($FX-input-icon, default, width) - 0.4rem);
+
+            &.form-control-lg {
+                padding-right: (FX__get($FX-input-icon, lg, width) - 0.6rem);
+            }
+
+            &.form-control-sm {
+                padding-right: (FX__get($FX-input-icon, sm, width) - 0.2rem);
+            }
+        }
+    }
+
+    // fixed width icon inputs        
+    &.fx-input-icon-fixed {
+        display: inline-block;
+        width: FX__get($FX-input-icon, default, fixed);
+    }
+
+    &.fx-input-icon-fixed-large {
+        display: inline-block;
+        width: FX__get($FX-input-icon, lg, fixed);
+    }
+
+    &.fx-input-icon-fixed-small {
+        display: inline-block;
+        width: FX__get($FX-input-icon, sm, fixed);
+    }  
+}
+
+.input-group-text {
+    svg {
+        width: 88%;
+        height: auto;
+    }
+}

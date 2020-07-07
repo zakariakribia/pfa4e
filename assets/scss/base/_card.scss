@@ -1,0 +1,580 @@
+/*------------------------------------
+    Card
+------------------------------------*/
+.fx-card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    box-shadow: $FX-elevate-shadow;
+    background-color: FX__get($FX-card, bg-color);
+    margin-bottom: FX__get($FX-card, bottom-space, desktop);
+
+    // Global white content mode
+    .fx-page-content-white & {
+        box-shadow: $FX-elevate-shadow-2;
+    }
+
+    @include FX__rounded {
+        border-radius: $FX-border-radius;
+    }
+
+    // Base
+    .fx-card-head {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        position: relative;
+        padding: 0 FX__get($FX-card, space, desktop);
+        border-bottom: 1px solid FX__get($FX-card, border-color);
+        min-height: FX__get($FX-card, min-height, default, desktop);
+
+        &.fx-card-head-noborder {
+            border-bottom: 0;
+        }
+
+        @include FX__rounded {
+            border-top-left-radius: $FX-border-radius;
+            border-top-right-radius: $FX-border-radius;
+        }
+
+        .fx-card-head-container {
+            display: flex;
+            align-items: center;
+            align-content: flex-first;
+
+            .fx-card-head-title {
+                margin: 0;
+                padding: 0;
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: FX__color_base(label, 4);
+
+                small {
+                    font-weight: 300;
+                    padding-left: 0.5rem;
+                    font-size: 1rem;
+                    color: FX__color_base(label, 2);
+                }
+            }
+
+            .fx-card-head-icon {
+                padding-right: 0.75rem;
+                font-size: 1.3rem;
+                color: FX__color_base(label, 2);
+            }
+        }
+
+        .fx-card-head-toolbar {
+            display: flex;
+            align-items: center;
+            align-content: flex-end;
+
+            .nav-pills,
+            .nav-tabs {
+                margin: 0;
+            }
+
+            .fx-card-head-wrapper {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .fx-card-head-progress {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    // Head sizing
+    &.fx-card-head-sm {
+        .fx-card-head {
+            min-height: FX__get($FX-card, min-height, sm, desktop);
+        }
+    }
+
+    &.fx-card-head-lg {
+        .fx-card-head {
+            min-height: FX__get($FX-card, min-height, lg, desktop);
+        }
+    }
+
+    &.fx-card-head-xl {
+        .fx-card-head {
+            min-height: FX__get($FX-card, min-height, xl, desktop);
+        }
+    }
+
+    .fx-card-foot {
+        padding: FX__get($FX-card, space, desktop);
+        border-top: 1px solid FX__get($FX-card, border-color);
+
+        .fx-card-foot-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @include FX__rounded {
+            border-bottom-left-radius: $FX-border-radius;
+            border-bottom-right-radius: $FX-border-radius;
+        }
+
+        &.fx-card-foot-sm {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        &.fx-card-foot-md {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        &.fx-card-foot-no-border {
+            border-top: 0;
+        }
+
+        &.fx-card-foot-top {
+            border-top: 0;
+            border-bottom: 1px solid FX__get($FX-card, border-color);
+            border-radius: 0px;
+        }
+
+        &.fx-card-foot-solid {
+            background-color: FX__color_base(grey, 1);
+            border-top: 0;
+            
+            &.fx-card-foot-top {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    // Bordered
+    &.fx-card-bordered {
+        box-shadow: none;
+        border: 1px solid FX__get($FX-card, border-color);
+    }
+
+    // Unround
+    &.fx-card-unround {
+        .fx-card-head {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .fx-card-body {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .fx-card-foot {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    // Portlet body alignment
+    .fx-card-body {
+        display: flex;
+        flex-direction: column;
+        padding: FX__get($FX-card, space, desktop);
+
+        @include FX__rounded {
+            border-radius: $FX-border-radius;
+        }
+
+        .fx-card-content {
+            padding: 0;
+            margin: 0;
+        }
+
+        &.fx-card-body-center {
+            justify-content: center;
+            align-items: center;
+        }
+
+        &.fx-card-body-center-x {
+            justify-content: center;
+        }
+
+        &.fx-card-body-center-y {
+            align-items: center;
+        }
+
+        .fx-card-body-hor-fit {
+            margin-left: -(FX__get($FX-card, space, desktop));
+            margin-right: -(FX__get($FX-card, space, desktop));
+        }
+
+        &.fx-card-body-stick-bottom {
+            position: relative;
+            bottom: 0;
+        }
+
+        &.fx-card-body-fluid {
+            height: 100%;
+            flex-direction: row;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        // Full height
+        &.fx-card-body-fill {
+            flex-grow: 1 !important;
+        }
+
+        // Non full height
+        &.fx-card-body-unfill {
+            flex-grow: 0 !important;
+        }
+
+        &.fx-card-body-fullheight {
+            flex-grow: auto;
+        }
+    }
+
+    // Padding options
+    &.fx-card-fit {
+        .fx-card-head {
+            padding: 0;
+        }
+
+        .fx-card-body {
+            padding: 0;
+        }
+
+        .fx-card-foot {
+            padding: 0;
+        }
+
+        &.fx-card-height-fluid-half {
+            align-items: stretch;
+
+            .fx-card-body {
+                height: 100%;
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    }
+
+    // Contain inner elements
+    &.fx-card-contain {
+        overflow: hidden;
+    }
+
+    .fx-card-head.fx-card-head-fit,
+    .fx-card-body.fx-card-body-fit,
+    .fx-card-foot.fx-card-foot-fit {
+        padding: 0;
+    }
+
+    .fx-card-body.fx-card-body-fit-top {
+        padding-top: 0 !important;
+    }
+
+    .fx-card-body.fx-card-body-fit-bottom {
+        padding-bottom: 0 !important;
+    }
+
+    .fx-card-body.fx-card-body-fit-x,
+    .fx-card-body.fx-card-body-hor-fit {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .fx-card-body.fx-card-body-fit-y {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &.fx-card-space {
+        padding-left: FX__get($FX-card, space, desktop);
+        padding-right: FX__get($FX-card, space, desktop);
+
+        .fx-card-head,
+        .fx-card-body,
+        .fx-card-foot {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    // Options
+    // No border
+    &.fx-card-head-noborder {
+        .fx-card-head {
+            border-bottom: 0;
+        }
+
+        .fx-card-body {
+            padding-top: FX__get($FX-card, space, desktop) / 2;
+        }
+    }
+
+    // Tab style
+    &.fx-card-tabs {
+        .fx-card-head {
+            .fx-card-head-toolbar {
+                display: flex;
+                align-items: stretch;
+            }
+        }
+    }
+
+    // Tab 3x border style
+    &.fx-card-tabs-border-3x {
+        .fx-card-head {
+            border-bottom: 3px solid FX__color_base(grey, 1);
+
+            .nav.nav-tabs {
+                margin-bottom: -3px;
+            }
+        }
+    }
+
+    @each $name,
+    $color in $FX-colors-state {
+
+        // Solid style
+        &.fx-card-solid-#{$name} {
+            background: FX__get($color, base);
+
+            .fx-card-head {
+                color: FX__get($color, inverse);
+                border-bottom: 1px solid transparent;
+
+                .fx-card-head-title {
+                    color: FX__get($color, inverse);
+
+                    small {
+                        color: darken(FX__get($color, inverse), 6%);
+                    }
+                }
+
+                .fx-card-head-icon {
+                    i {
+                        color: darken(FX__get($color, inverse), 6%);
+                    }
+                }
+            }
+
+            .fx-card-body {
+                padding-top: 5px;
+            }
+
+            .fx-card-wrapper,
+            .fx-card-body {
+                color: FX__get($color, inverse);
+            }
+
+            .fx-card-foot {
+                color: FX__get($color, inverse);
+                border-top: 1px solid transparent;
+                background: darken(FX__get($color, base), 6%);
+            }
+        }
+
+        // Tab 3x border states
+        &.fx-card-tabs-border-3x-#{$name} {
+            .fx-card-head {
+                border-bottom: 3px solid rgba(FX__get($color, base), 0.1);
+            }
+        }
+
+        // Bottom Border
+        &.fx-card-border-bottom-#{$name} {
+            border-bottom: 3px solid rgba(FX__get($color, base), 0.2);
+        }
+    }
+
+}
+
+// Card tooltip
+.tooltip-card {
+    opacity: 1;
+}
+
+@include FX__desktop {
+    .fx-card {
+        // Fluid Height
+        &.fx-card-height-fluid {
+            height: calc(100% - #{FX__get($FX-card, bottom-space, desktop)});
+
+            .fx-card-body {
+                flex-grow: 1;
+            }
+        }
+
+        // Full height box mode
+        &.fx-card-height-fluid-half {
+            height: calc(50% - #{FX__get($FX-card, bottom-space, desktop)});
+
+            .fx-card-body {
+                flex-grow: 1;
+            }
+        }
+    }
+}
+
+@include FX__tablet_and_mobile {
+    .fx-card {
+        margin-bottom: FX__get($FX-card, bottom-space, mobile);
+
+        // Head sizing
+        .fx-card-head {
+            padding: 0 FX__get($FX-card, space, mobile);
+            min-height: FX__get($FX-card, min-height, default, mobile);
+
+            &.fx-card-head-sm {
+                min-height: FX__get($FX-card, min-height, sm, mobile);
+            }
+
+            &.fx-card-head-lg {
+                min-height: FX__get($FX-card, min-height, lg, mobile);
+            }
+
+            &.fx-card-head-xl {
+                min-height: FX__get($FX-card, min-height, xl, mobile);
+            }
+        }
+
+        &.fx-card-head-sm {
+            .fx-card-head {
+                min-height: FX__get($FX-card, min-height, sm, mobile);
+            }
+        }
+
+        &.fx-card-head-lg {
+            .fx-card-head {
+                min-height: FX__get($FX-card, min-height, lg, mobile);
+            }
+        }
+
+        &.fx-card-head-xl {
+            .fx-card-head {
+                min-height: FX__get($FX-card, min-height, xl, mobile);
+            }
+        }
+
+        // Portlet body alignment
+        .fx-card-body {
+            padding: FX__get($FX-card, space, mobile);
+
+            .fx-card-body-hor-fit {
+                margin-left: -(FX__get($FX-card, space, mobile));
+                margin-right: -(FX__get($FX-card, space, mobile));
+            }
+        }
+
+        .fx-card-foot {
+            padding: FX__get($FX-card, space, mobile);
+        }
+
+        // Marginless
+        &.fx-card-marginless {
+            margin-bottom: 0;
+        }
+
+        // Sticky box
+        &.fx-card-sticky {
+            .fx-card-head {
+                height: FX__get($FX-card, min-height, default, mobile) - 10px;
+
+                &.fx-card-head-sm {
+                    height: FX__get($FX-card, min-height, sm, mobile) - 10px;
+                }
+
+                &.fx-card-head-lg {
+                    height: FX__get($FX-card, min-height, lg, mobile) - 10px;
+                }
+
+                &.fx-card-head-xl {
+                    height: FX__get($FX-card, min-height, xl, mobile) - 10px;
+                }
+            }
+        }
+
+        // Head overlay
+        &.fx-card-head-overlay {
+            .fx-card-head {
+                height: FX__get($FX-card, min-height, default, mobile);
+            }
+
+            .fx-card-body {
+                margin-top: -(FX__get($FX-card, min-height, default, mobile));
+            }
+
+            // Head sizing
+            &.fx-card-head-sm {
+                .fx-card-head {
+                    height: FX__get($FX-card, min-height, sm, mobile);
+                }
+
+                .fx-card-body {
+                    margin-top: -(FX__get($FX-card, min-height, sm, mobile));
+                }
+            }
+
+            &.fx-card-head-lg {
+                .fx-card-head {
+                    height: FX__get($FX-card, min-height, lg, mobile);
+                }
+
+                .fx-card-body {
+                    margin-top: -(FX__get($FX-card, min-height, lg, mobile));
+                }
+            }
+
+            &.fx-card-head-xl {
+                .fx-card-head {
+                    height: FX__get($FX-card, min-height, xl, mobile);
+                }
+
+                .fx-card-body {
+                    margin-top: -(FX__get($FX-card, min-height, xl, mobile));
+                }
+            }
+        }
+
+        // No border
+        &.fx-card-head-noborder {
+            .fx-card-body {
+                padding-top: FX__get($FX-card, space, mobile) / 2;
+            }
+        }
+
+        // Spacing
+        .fx-card-space-x {
+            padding-left: FX__get($FX-card, space, mobile) !important;
+            padding-right: FX__get($FX-card, space, mobile) !important;
+        }
+
+        .fx-card-space-y {
+            padding-top: FX__get($FX-card, space, mobile) !important;
+            padding-bottom: FX__get($FX-card, space, mobile) !important;
+        }
+    }
+}
+
+@include FX__mobile {
+    .fx-card {
+        &.fx-card-head-break-sm {
+            .fx-card-head {
+                padding-top: FX__get($FX-card, space, mobile);
+                padding-bottom: FX__get($FX-card, space, mobile);
+                min-height: initial !important;
+                height: auto;
+                flex-wrap: wrap;
+
+                .fx-card-head-container {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}

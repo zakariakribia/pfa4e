@@ -3,11 +3,26 @@
 {% block title %}Edit Demande{% endblock %}
 
 {% block body %}
-    <h1>Edit Demande</h1>
+    <div class="fx-card fx-card-tabs">
+        <div class="fx-card-head align-items-center">
+            <div class="fx-card-head-container">
+              <h3 class="fx-card-head-title text-capitalize">
+                Edit Demande
+              </h3>
+            </div>
+            <div class="fx-card-head-toolbar">
+                <div>
+                    <a href="{{ path('demande_index') }}" class="btn btn-dark mb-0">
+                    	<i data-feather="arrow-left" class="pr-1"></i>
+                    	<span class="pl-1 align-middle">back to list</span>
+                    </a>
+                    {{ include('demande/_delete_form.html.twig', {'button_size': ''}) }}
+                </div>
+            </div>
+        </div>
+        <div class="fx-card-body">
+    		{{ include('demande/_form.html.twig', {'button_label': 'Update'}) }}
+     	</div>
+    </div>
 
-    {{ include('demande/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('demande_index') }}">back to list</a>
-
-    {{ include('demande/_delete_form.html.twig') }}
 {% endblock %}

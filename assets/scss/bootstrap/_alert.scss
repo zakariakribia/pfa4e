@@ -1,0 +1,157 @@
+/*------------------------------------
+	Alert
+------------------------------------*/
+.alert {
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    margin: 0 0 $grid-gutter-width 0;
+
+    &.alert-icon {
+        display: flex;
+        align-items: stretch;
+        .alert-icon-text {
+            display: flex;
+            align-items: center;
+            padding: 0 1.25rem 0 0;
+
+            i {
+                font-size: 2.4rem;
+            }
+
+            &.alert-icon-top {
+                align-items: flex-start;
+                align-content: stretch;
+            }
+        }
+    }
+
+    .alert-text {
+        -ms-flex-item-align: center;
+        align-self: center;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+    }
+    
+    .alert-close {
+        padding: 0 0 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .close {
+            text-shadow: none !important;
+        }
+
+        i {
+            opacity: 0.8;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transition: all 0.3s ease;
+                opacity: 1;
+            }
+        }
+    }
+
+    // States
+    @each $name,
+    $color in $FX-colors-state {
+        &.alert-#{$name} {
+            background: FX__get($FX-colors-state, $name, base);
+            border: 1px solid FX__get($FX-colors-state, $name, base);
+            color: FX__get($FX-colors-state, $name, inverse);
+
+            .alert-icon {
+                i {
+                    color: FX__get($FX-colors-state, $name, inverse);
+                }
+            }
+
+            .alert-text {
+                color: FX__get($FX-colors-state, $name, inverse);
+
+                hr {
+                    border-top-color: FX__get($FX-colors-state, $name, inverse);
+                    opacity: 0.4;
+                }
+            }
+
+            .alert-close {
+                i,button {
+                    color: FX__get($FX-colors-state, $name, inverse);
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.alert-outline-#{$name} {
+            border: 1px solid FX__get($FX-colors-state, $name, base);
+            color: FX__get($FX-colors-state, $name, base);
+
+            .alert-icon {
+                i {
+                    color: FX__get($FX-colors-state, $name, base);
+                }
+            }
+
+            .alert-text {
+                color: FX__get($FX-colors-state, $name, base);
+            }
+
+            .alert-close {
+                i,button {
+                    color: FX__get($FX-colors-state, $name, base);
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.alert-transparent-#{$name} {
+            background: rgba(FX__get($FX-colors-state, $name, base), 0.1);
+            border-color: transparent;
+            color: FX__get($FX-colors-state, $name, base);
+
+            .alert-icon {
+                i {
+                    color: FX__get($FX-colors-state, $name, base);
+                }
+            }
+
+            .alert-text {
+                color: FX__get($FX-colors-state, $name, base);
+            }
+
+            .alert-close {
+                i,button {
+                    color: FX__get($FX-colors-state, $name, base);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    // Secondary alert
+    &.alert-secondary {
+        .alert-icon {
+            i {
+                color: FX__color_base(label, 2);
+            }
+        }
+
+        .alert-text {
+            color: FX__color_base(label, 3);
+        }
+    }
+
+    // Marginless
+    &.alert--marginless {
+        margin: 0;
+    }
+
+    &.alert-bold {
+        .alert-text {
+            font-weight: 500;
+        }
+    }
+}

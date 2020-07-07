@@ -1,0 +1,9 @@
+/*------------------------------------
+	Badges
+------------------------------------*/
+
+@mixin badge_outline($FX-color, $FX-background, $FX-border) {
+  color: color-yiq($FX-color);
+  background: $FX-background;
+  border-color: color-yiq($FX-border);
+}

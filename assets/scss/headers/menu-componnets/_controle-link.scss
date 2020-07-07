@@ -1,0 +1,16 @@
+.open-target {
+    &.active {
+        .open {
+        display: none;
+        }
+        .closed {
+        display: block;
+        }
+    }
+    .closed {
+    display: none;
+    }
+    .open {
+    display: block;
+    }
+}

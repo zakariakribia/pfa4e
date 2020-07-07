@@ -1,0 +1,222 @@
+/*------------------------------------
+    Pagination
+------------------------------------*/
+// Base
+.fx-pagination {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+
+    .fx-pagination-list,
+    .fx-pagination-list li a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fx-pagination-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0.5rem;
+
+
+            @include FX__rounded {
+                border-radius: 4px;
+            }
+
+            a {
+                font-weight: 600;
+                color: FX__color_base(label, 2);
+                font-size: 1.1rem;
+                padding: 0 0.2rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                min-width: 30px;
+                min-height: 30px;
+                margin: 0;
+                > .fx-nav-text {
+                    padding: 0 1rem;
+                    margin-top: -3px;
+                    display: inline-block;
+                }
+            }
+        }
+
+
+
+
+        .fx-pagination-active {
+            a {
+                color: FX__color_brand(inverse);
+            }
+        }
+    }
+
+    // Pager
+    .fx-pagination-pager {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        padding: 0;
+
+        .form-control {
+            padding: 0;
+            margin-right: 10px;
+            height: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1;
+            outline: none;
+            border: none;
+            width: 50px;
+        }
+
+        .fx-pagination-desc {
+            flex-grow: 1;
+            font-weight: 500;
+            color: FX__color_base(label, 2);
+        }
+    }
+
+    @each $name,
+    $color in $FX-colors-state {
+        &.fx-pagination-#{$name} {
+
+            .fx-pagination-list {
+
+                .fx-pagination-first,
+                .fx-pagination-next,
+                .fx-pagination-prev,
+                .fx-pagination-last {
+                    background: rgba(FX__get($color, base), 0.1);
+                    > a {
+                        color: FX__get($color, base);
+                    }
+                }
+
+                .fx-pagination-active {
+                    background: FX__get($color, base);
+                }
+
+                li {
+                    &:hover {
+                        background: FX__get($color, base);
+                        transition: color 0.3s ease;
+
+                        a {
+                            color: FX__color_brand(inverse);
+
+                            i {
+                                color: #fff !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .fx-pagination-pager {
+                .form-control {
+                    background: rgba(FX__get($color, base), 0.1);
+                }
+            }
+        }
+    }
+
+
+    // Circle style 
+    &.fx-pagination-circle {
+        .fx-pagination-list {
+            li {
+                min-width: 30px;
+                min-height: 30px;
+
+                @include FX__rounded {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    // Sizing options
+    &.fx-pagination-lg {
+        .fx-pagination-list {
+            li {
+                a {
+                    font-size: 1.3rem;
+                    min-width: 35px;
+                    min-height: 35px;
+                }
+
+            }
+        }
+
+        .fx-pagination-pager {
+            .form-control {
+                height: 35px;
+                font-size: 1.2rem;
+                padding: 0.2rem 0 0.2rem 0.2rem;
+            }
+        }
+    }
+
+    &.fx-pagination-sm {
+        .fx-pagination-list {
+            li {
+                a {
+                    font-size: 1rem;
+                    min-width: 25px;
+                    min-height: 25px;
+                }
+
+            }
+        }
+
+        .fx-pagination-pager {
+            .form-control {
+                height: 25px;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+
+@include FX__mobile {
+    .fx-pagination {
+        .fx-pagination-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+                margin: 0.3rem 0.5rem 0.3rem 0;
+                ;
+
+                a {
+                    font-size: 0.9rem;
+                    min-width: 25px;
+                    min-height: 25px;
+                }
+            }
+        }
+
+        .fx-pagination-pager {
+            .form-control {
+                height: 25px;
+                font-size: 0.9rem;
+                padding: 0.2rem 0 0.2rem 0.2rem;
+            }
+        }
+    }
+}
