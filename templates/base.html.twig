@@ -18,6 +18,7 @@
         {% block stylesheets %}
             {# 'app' must match the first argument to addEntry() in webpack.config.js #}
             {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('sweetalert') }}
 
             <!-- Renders a link tag (if your module requires any CSS)
             <link rel="stylesheet" href="/build/app.css"> -->
@@ -37,6 +38,7 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('sweetalert') }}
 
             <!-- Renders app.js & a webpack runtime.js file
                 <script src="/build/runtime.js"></script>
