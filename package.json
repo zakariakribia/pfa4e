@@ -21,6 +21,7 @@
         "datatables.net-bs4": "^1.10.21",
         "datatables.net-responsive-bs4": "^2.2.5",
         "feather-icons": "^4.28.0",
+        "jquery-validation": "^1.19.2",
         "popper.js": "^1.16.1",
         "select2": "^4.0.13",
         "sweetalert2": "^9.15.2"

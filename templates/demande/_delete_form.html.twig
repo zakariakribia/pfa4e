@@ -1,8 +1,8 @@
-<form class="d-inline-block" method="post" action="{{ path('demande_delete', {'id': demande.id}) }}">
+<form class="d-inline-block alertForm" method="post" action="{{ path('demande_delete', {'id': demande.id}) }}">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ demande.id) }}">
-    <a href="{{ path('demande_index') }}" class="btn btn-danger mb-0 {{button_size}} alertConfirm">
+    <button type="submit" class="btn btn-danger mb-0 {{button_size}} alertConfirm">
     	<i data-feather="trash" class="pr-1"></i>
     	<span class="pl-1 align-middle">Supprimer</span>
-    </a>
+    </button>
 </form>

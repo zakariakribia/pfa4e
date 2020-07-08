@@ -12,25 +12,26 @@ $(document).ready(function() {
     
     $body = $('body');
     
-   //  if($body.find('.alertConfirm')) {
-   //  	$('.alertConfirm').on('click', (e) =>{
-   //  		e.preventDefault();
-	  //   	Swal.fire({
-			//   title: "Are you sure?",
-			//   text: "Are you sure you want to delete this item?",
-			//   icon: "warning",
-			//   dangerMode: true
-			// })
-			// .then(willDelete => {
-			// 	if (willDelete) {
-			// 	    if($(this).parents('form').submit()) {
-				    	
-			// 	    Swal.fire("Deleted!", "Your imaginary file has been deleted!", "success");
-			// 	    }
-			// 	}
-			// });
-   //  	});
-   //  }
+    if($body.find('.alertConfirm')) {
+    	$('.alertConfirm').on('click', (e) =>{
+    		e.preventDefault();
+	    	Swal.fire({
+			  title: "Are you sure?",
+			  text: "Are you sure you want to delete this item?",
+			  icon: "warning",
+			  dangerMode: true
+			})
+			.then(willDelete => {
+				if (willDelete) {
+					const $sender = $(this).parent('.alertForm').submit();
+					console.log($sender);
+				    if($sender) {
+				    	Swal.fire("Deleted!", "Your imaginary file has been deleted!", "success");
+				    }
+				}
+			});
+    	});
+    }
 
 });
 

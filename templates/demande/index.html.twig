@@ -40,10 +40,6 @@
                         <td>{{ demande.dateValidationDP ? demande.dateValidationDP|date('Y-m-d') : '' }}</td>
                         <td>{{ demande.dateValidationDE ? demande.dateValidationDE|date('Y-m-d') : '' }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm mb-0" href="{{ path('demande_show', {'id': demande.id}) }}">
-                                <i data-feather="eye" class="pr-1"></i>
-                                <span class="pl-1 align-middle"> show </span>
-                            </a>
                             <a class="btn btn-warning btn-sm mb-0" href="{{ path('demande_edit', {'id': demande.id}) }}">
                                 <i data-feather="edit-3" class="pr-1"></i>
                                 <span class="pl-1 align-middle"> edit </span>

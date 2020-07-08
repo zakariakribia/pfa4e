@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Demande;
+use App\Form\DemandeEntrepriseType;
+use App\Form\DemandeSecretaireType;
 use App\Form\DemandeType;
+use App\Form\LaureatDemandeType;
 use App\Repository\DemandeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +18,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class DemandeController extends AbstractController
 {
+    const ETAT_ONE = 1;
+    const ETAT_TWO = 2;
+
     /**
      * @Route("/", name="demande_index", methods={"GET"})
      */
@@ -26,12 +32,12 @@ class DemandeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="demande_new", methods={"GET","POST"})
+     * @Route("/laureat/new", name="laureat_demande_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
         $demande = new Demande();
-        $form = $this->createForm(DemandeType::class, $demande);
+        $form = $this->createForm(DemandeLaureatType::class, $demande);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -42,21 +48,59 @@ class DemandeController extends AbstractController
             return $this->redirectToRoute('demande_index');
         }
 
-        return $this->render('demande/new.html.twig', [
+        return $this->render('demande/laureat_new.html.twig', [
             'demande' => $demande,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="demande_show", methods={"GET"})
-     */
-    public function show(Demande $demande): Response
+     * @Route("/entreprise/new", name="entreprise_demande_new", methods={"GET","POST"})
+    */
+    public function newentreprise(Request $request): Response
     {
-        return $this->render('demande/show.html.twig', [
+        $demande = new Demande();
+        $form = $this->createForm(DemandeEntrepriseType::class, $demande);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('demande_index');
+        }
+
+        return $this->render('demande/entreprise_new.html.twig', [
             'demande' => $demande,
+            'form' => $form->createView(),
         ]);
     }
+    
+    /**
+     * @Route("/secretaire/validate", name="etablisment_demande_new", methods={"GET","POST"})
+    */
+    public function validateSecretaire(Request $request): Response
+    {
+        $demande = new Demande();
+        $form = $this->createForm(DemandeSecretaireType::class, $demande);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('demande_index');
+        }
+
+        return $this->render('demande/secretaire_new.html.twig', [
+            'demande' => $demande,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    
 
     /**
      * @Route("/{id}/edit", name="demande_edit", methods={"GET","POST"})
