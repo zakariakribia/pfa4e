@@ -1,12 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Etablissement index{% endblock %}
+{% block title %}Etablisement index{% endblock %}
 
 {% block body %}
-    <h1>Etablissement index</h1>
-
-    <table class="table">
-        <thead>
+    <div class="fx-card fx-card-tabs">
+        <div class="fx-card-head align-items-center">
+            <div class="fx-card-head-container">
+              <h3 class="fx-card-head-title text-capitalize">
+               ETABLISSEMENT
+              </h3>
+            </div>
+            <div class="fx-card-head-toolbar">
+                <div>
+                    <a href="{{ path('etablissement_new') }}" class="btn btn-danger mb-0">
+                        <i data-feather="plus" class="pr-1"></i>
+                        <span class="pl-1 align-middle">Create New</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="fx-card-body">
+            <table class="table fx-data-table" id="ResponsiveTable">
+                <thead>
             <tr>
                 <th>Id</th>
                 <th>Pseudo</th>
@@ -22,7 +37,7 @@
                 <th>actions</th>
             </tr>
         </thead>
-        <tbody>
+                <tbody>
         {% for etablissement in etablissements %}
             <tr>
                 <td>{{ etablissement.id }}</td>
@@ -37,8 +52,14 @@
                 <td>{{ etablissement.nomEtablissement }}</td>
                 <td>{{ etablissement.logo }}</td>
                 <td>
-                    <a href="{{ path('etablissement_show', {'id': etablissement.id}) }}">show</a>
-                    <a href="{{ path('etablissement_edit', {'id': etablissement.id}) }}">edit</a>
+                    <a class="btn btn-primary btn-sm mb-0" href="{{ path('etablissement_show', {'id': etablissement.id}) }}">
+                                <i data-feather="eye" class="pr-1"></i>
+                                <span class="pl-1 align-middle"> show </span>
+                            </a>
+                            <a class="btn btn-warning btn-sm mb-0" href="{{ path('etablissement_edit', {'id': etablissement.id}) }}">
+                                <i data-feather="edit-3" class="pr-1"></i>
+                                <span class="pl-1 align-middle"> edit </span>
+                            </a>
                 </td>
             </tr>
         {% else %}
@@ -47,7 +68,12 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-
-    <a href="{{ path('etablissement_new') }}">Create new</a>
+            </table>
+        </div>
+    </div>
 {% endblock %}
+
+
+
+
+

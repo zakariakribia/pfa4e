@@ -10,9 +10,28 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "user" = "User",
+ *     "laureat" = "Laureat",
+ *     "entreprise" = "Entreprise",
+ *     "secretaire" = "Secretaire",
+ *     "etablissement" = "Etablissement",
+ *     "directeur" = "DirecteurPedagogique",
+ * })
  */
 class User implements UserInterface
 {
+    const ROLES_LIST = [
+        // 'ROLE_ADMIN', admin role is created in a secure way not login
+        'ROLE_LAUREAT',
+        'ROLE_DIRECTEUR',
+        'ETABLISSEMENT',
+        'ROLE_ENTREPRISE',
+        'ROLE_SECRETAIRE',
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -66,6 +85,16 @@ class User implements UserInterface
      */
     private $photoUrl;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pseudo;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $deleted;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,6 +139,12 @@ class User implements UserInterface
         $this->roles = $roles;
 
         return $this;
+    }
+
+    public function getRolesList(): array
+    {
+
+        return array_unique(self::ROLES_LIST);
     }
 
     /**
@@ -212,6 +247,30 @@ class User implements UserInterface
     public function setPhotoUrl(?string $photoUrl): self
     {
         $this->photoUrl = $photoUrl;
+
+        return $this;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    public function getDeleted(): ?bool
+    {
+        return $this->deleted;
+    }
+
+    public function setDeleted(bool $deleted): self
+    {
+        $this->deleted = $deleted;
 
         return $this;
     }
