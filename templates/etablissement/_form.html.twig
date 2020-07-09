@@ -1,4 +1,91 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+	<div class="row">
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_pseudo" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.pseudo, 'Pseudo :') }} 
+		    </label>
+	        {{ form_widget(form.pseudo, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+	   
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_nom" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.nom, 'Nom :') }} 
+		    </label>
+	        {{ form_widget(form.nom, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+
+	     <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_prenom" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.prenom, 'Prenom :') }} 
+		    </label>
+	        {{ form_widget(form.prenom, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+
+	  	    
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_password" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.password, 'Password:') }} 
+		    </label>
+	        {{ form_widget(form.password, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+	   
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_adresse" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.adresse, 'Adresse :') }} 
+		    </label>
+	        {{ form_widget(form.adresse, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+	   
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_email" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.email, 'Email:') }} 
+		    </label>
+	        {{ form_widget(form.email, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+	    
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_telephone" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.telephone, 'Telephone :') }} 
+		    </label>
+	        {{ form_widget(form.telephone, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+	   
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_nomEtablissement" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.nomEtablissement, 'NomEtablissement :') }} 
+		    </label>
+	        {{ form_widget(form.nomEtablissement, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+	   
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_logo" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.logo, 'Logo :') }} 
+		    </label>
+	        {{ form_widget(form.logo, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+	   
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_pays" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.pays, 'Pays :') }} 
+		    </label>
+	        {{ form_widget(form.pays, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+
+	    <div class="col col-md-6 mb-5">
+	        <label for="Etablissement_deleted" class="fx-text-dark h5 col-form-label-lg"> 
+		        {{ form_label(form.deleted, 'Deleted :') }} 
+		    </label>
+	        {{ form_widget(form.deleted, {'attr': {'class': 'form-control form-control-lg'}}) }}
+	    </div>
+
+	   
+	<div class="text-center mt-4">
+		<button class="btn btn-widest btn-tall btn-primary">
+			<i data-feather="save" class="pr-1"></i>
+			<span class="pr-2">{{ button_label|default('sauvegarder') }}</span>
+		</button>
+	</div>
 {{ form_end(form) }}

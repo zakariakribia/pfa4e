@@ -42,58 +42,58 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    protected $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    private $password;
+    protected $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $prenom;
+    protected $prenom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $addresse;
+    protected $addresse;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $telephone;
+    protected $telephone;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $datenaissance;
+    protected $datenaissance;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $photoUrl;
+    protected $photoUrl;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $pseudo;
+    protected $pseudo;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $deleted;
+    protected $deleted;
 
     public function getId(): ?int
     {

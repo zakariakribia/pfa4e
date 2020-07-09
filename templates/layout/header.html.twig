@@ -22,7 +22,7 @@
           <!-- Begin::SubMenu -->
           <li class="mr-2">
             <a href="#" class="active menu-link">
-              <span> About </span>
+              <span> Home </span>
             </a>
           </li>
           <!-- ./End SubMenu -->
@@ -63,13 +63,13 @@
             </a>
           </li>
           <!-- ./End LinkMenu -->
-
+          {% if app.user %}
           <!--begin::User-->
           <li class="ml-2">
             <a href="#" class="mn-has-sub menu-link">
               <div class="user-menu">
                 <span class="font-weight-bold d-none d-md-inline mr-1">Hi,</span>
-                <span class="font-weight-bolder d-none d-md-inline mr-2">Katarine</span>
+                <span class="font-weight-bolder d-none d-md-inline mr-2">{{ app.user.email }}</span>
                 <span class="btn btn-md btn-soft-primary"> K </span>
               </div>
             </a>
@@ -134,9 +134,9 @@
               <!-- Footer -->
               <li class="list-footer bg-light"> 
                 <div class="p-3 d-flex justify-content-end">
-                  <a href="#" target="_blank" class="btn btn-dark px-3 py-2 font-weight-bold fx-w-auto d-inline-block btn-sm fx-text-light">
+                  <a href="/logout" class="btn btn-dark px-3 py-2 font-weight-bold fx-w-auto d-inline-block btn-sm fx-text-light">
                     <i data-feather="log-out" class="pr-1"></i>
-                    <span class="pr-1 align-middle"> Sign Out </span>
+                    <span class="pr-1 align-middle"> Deconnexion </span>
                   </a>
                 </div> 
               </li>
@@ -145,6 +145,20 @@
             <!-- ./End Sub Multilevel -->
             <!-- ./End Sub -->
           </li>
+          {% endif %}
+
+          {% if app.user is null or app.user is empty %}
+            <li class="mr-2">
+            <a href="/login" class="active menu-link">
+              <span> Connexion </span>
+            </a>
+          </li>
+          <li class="mr-2">
+            <a href="/register" class="active menu-link">
+              <span> S'inscrire </span>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div>
       <!-- ./End Main Menu -->
