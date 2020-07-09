@@ -39,10 +39,10 @@ class DirecteurPedagogique extends User
         return $this->id;
     }
 
-    // public function __toString()
-    // {
-    //     return $this->nom;
-    // }
+     public function __toString()
+     {
+         return $this->nom;
+     }
     
     /**
      * @return Collection|Demande[]
