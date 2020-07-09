@@ -3,10 +3,30 @@
 {% block title %}Etablissement{% endblock %}
 
 {% block body %}
-    <h1>Etablissement</h1>
-
-    <table class="table">
-        <tbody>
+<div class="fx-card fx-card-tabs">
+        <div class="fx-card-head align-items-center">
+            <div class="fx-card-head-container">
+              <h3 class="fx-card-head-title text-capitalize">
+                Etablissement {{etablissement.id }}
+              </h3>
+            </div>
+            <div class="fx-card-head-toolbar">
+                <div>
+                    <a href="{{ path('etablissement_index') }}" class="btn btn-dark mb-0">
+                        <i data-feather="arrow-left" class="pr-1"></i>
+                        <span class="pl-1 align-middle">Back to List</span>
+                    </a>
+                    <a href="{{ path('etablissement_edit', {'id': etablissement.id}) }}" class="btn btn-warning mb-0">
+                        <i data-feather="edit-3" class="pr-1"></i>
+                        <span class="pl-1 align-middle">edit</span>
+                    </a>
+                    {{ include('etablissement/_delete_form.html.twig', {'button_size': ''}) }}
+                </div>
+            </div>
+        </div>
+        <div class="fx-card-body">
+            <table class="table">
+                <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ etablissement.id }}</td>
@@ -52,11 +72,9 @@
                 <td>{{ etablissement.logo }}</td>
             </tr>
         </tbody>
-    </table>
-
-    <a href="{{ path('etablissement_index') }}">back to list</a>
-
-    <a href="{{ path('etablissement_edit', {'id': etablissement.id}) }}">edit</a>
-
-    {{ include('etablissement/_delete_form.html.twig') }}
+            </table>
+        </div>
+    </div>
+    
 {% endblock %}
+
