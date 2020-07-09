@@ -4,9 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Demande;
 use App\Form\DemandeEntrepriseType;
+use App\Form\DemandeLaureatType;
 use App\Form\DemandeSecretaireType;
 use App\Form\DemandeType;
-use App\Form\LaureatDemandeType;
 use App\Repository\DemandeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

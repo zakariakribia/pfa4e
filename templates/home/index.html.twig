@@ -1,20 +1,141 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %} Home Page {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <section class="fx-section-space-8 position-relative">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6">
+                    <div class="text-left">
+                        <h1 class="display-4 fx-font-weight-boldest mb-5"> Have a meaningful impact </h1>
+                        <p class="intro-lead mb-4 fx-font-size-1 fx-text-lh-md mb-5">
+                            Many organizations treat internships as an opportunity to “pay your dues” or work on project scraps. We reject those notions. Some of the most important things Stripe has built, like the initial versions of Connect and Atlas, were created by one or two people in their first “real” jobs.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="/build/undraw_good_team_m7uu.svg" alt="team" class="fx-w-100" />
+                </div>
+            </div>
+        </div>
+        {# <div class="position-absolute fx-left-0 fx-bottom-0 fx-right-0 fx-h-100 dots-bg"></div> #}
+        <div class="common-StripeGrid anchorBottom">
+            <div class="backgroundContainer">
+                <div class="grid">
+                <div class="background Helm__background--slate9"></div>
+                </div>
+            </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Karim/Desktop/Symfony/pfa4e/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Karim/Desktop/Symfony/pfa4e/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+            <div class="stripeContainer">
+                <div class="grid">
+                    <div class="stripe"></div>
+                    {# <div class="stripe" style="background-color: rgb(255, 0, 86);"></div> #}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--process -->
+    <section class="fx-section-space-8 position-relative">
+        <div class="container">
+        <div class="head">
+            <h2 class="title text-center mb-5">How <span> Diploma </span> work </h2>
+        </div>
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6 col-lg-4">
+                    <article class="fx-card border-0 shadow-lg mb-5">
+                        <div class="position-relative">
+                            <img class="card-img-top fx-height-200 img-fit-cover" src="/build/laureat.jpg" alt="..." />
+                        </div>
+                        <!-- Body -->
+                        <div class="fx-card-body text-center position-relative">
+                            <!-- Avatar -->
+                            <div class="mt-n5">
+                                <span class="fx-badge fx-badge-dark fx-badge-rect p-4 fx-font-size-1_5">Laureat</span>
+                            </div>
+                            <!-- Heading -->
+                            <h4 class="fx-text-dark h4 fx-text-bolder mt-4"> Katie Williams </h4>
+                            <!-- Text -->
+                            <p class="fx-text-dark fx-font-size-1"> Wordpress expert </p>
+                            <!-- Blockquote -->
+                            <blockquote class="mb-3">
+                            <q class="font-size-lg"> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </q>
+                            </blockquote>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4 mt-5 pt-5">
+                    <article class="fx-card border-0 shadow-lg my-5">
+                        <div class="position-relative">
+                            <img class="card-img-top fx-height-200 img-fit-cover" src="/build/laureat.jpg" alt="..." />
+                        </div>
+                        <!-- Body -->
+                        <div class="fx-card-body text-center position-relative">
+                            <!-- Avatar -->
+                            <div class="mt-n5">
+                                <span class="fx-badge fx-badge-dark fx-badge-rect p-4 fx-font-size-1_5">Laureat</span>
+                            </div>
+                            <!-- Heading -->
+                            <h4 class="fx-text-dark h4 fx-text-bolder mt-4"> Katie Williams </h4>
+                            <!-- Text -->
+                            <p class="fx-text-dark fx-font-size-1"> Wordpress expert </p>
+                            <!-- Blockquote -->
+                            <blockquote class="mb-3">
+                            <q class="font-size-lg"> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </q>
+                            </blockquote>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="fx-card border-0 shadow-lg mb-5">
+                        <div class="position-relative">
+                            <img class="card-img-top fx-height-200 img-fit-cover" src="/build/entreprise.jpg" alt="..." />
+                        </div>
+                        <!-- Body -->
+                        <div class="fx-card-body text-center position-relative">
+                            <!-- Avatar -->
+                            <div class="mt-n5">
+                                <span class="fx-badge fx-badge-dark fx-badge-rect p-4 fx-font-size-1_5">Entreprise</span>
+                            </div>
+                            <!-- Heading -->
+                            <h4 class="fx-text-dark h4 fx-text-bolder mt-4"> Katie Williams </h4>
+                            <!-- Text -->
+                            <p class="fx-text-dark fx-font-size-1"> Wordpress expert </p>
+                            <!-- Blockquote -->
+                            <blockquote class="mb-3">
+                            <q class="font-size-lg"> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </q>
+                            </blockquote>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6 col-lg-4">
+                    <article class="fx-card border-0 shadow-lg mb-5">
+                        <div class="position-relative">
+                            <img class="card-img-top fx-height-200 img-fit-cover" src="/build/laureat.jpg" alt="..." />
+                        </div>
+                        <!-- Body -->
+                        <div class="fx-card-body text-center position-relative">
+                            <!-- Avatar -->
+                            <div class="mt-n5">
+                                <span class="fx-badge fx-badge-dark fx-badge-rect p-4 fx-font-size-1_5">Laureat</span>
+                            </div>
+                            <!-- Heading -->
+                            <h4 class="fx-text-dark h4 fx-text-bolder mt-4"> Katie Williams </h4>
+                            <!-- Text -->
+                            <p class="fx-text-dark fx-font-size-1"> Wordpress expert </p>
+                            <!-- Blockquote -->
+                            <blockquote class="mb-3">
+                            <q class="font-size-lg"> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </q>
+                            </blockquote>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}

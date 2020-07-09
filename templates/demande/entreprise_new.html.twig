@@ -3,6 +3,8 @@
 {% block title %}New Demande{% endblock %}
 
 {% block body %}
+<div class="fx-section-space-8 bg-light">
+  <div class="container">
     <div class="fx-card fx-card-tabs">
         <div class="fx-card-head align-items-center">
             <div class="fx-card-head-container">
@@ -13,15 +15,16 @@
             <div class="fx-card-head-toolbar">
                 <div>
                     <a href="{{ path('demande_index') }}" class="btn btn-dark mb-0">
-                    	<i data-feather="arrow-left" class="pr-1"></i>
-                    	<span class="pl-1 align-middle">Afficher les demandes</span>
+                      <i data-feather="arrow-left" class="pr-1"></i>
+                      <span class="pl-1 align-middle">Afficher les demandes</span>
                     </a>
                 </div>
             </div>
         </div>
         <div class="fx-card-body">
-    		{{ include('demande/forms/_form_entreprise.html.twig') }}
-     	</div>
+        {{ include('demande/forms/_form_entreprise.html.twig') }}
+      </div>
     </div>
-
+  </div>
+</div>
 {% endblock %}
