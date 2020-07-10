@@ -41,20 +41,21 @@ class UserFixtures extends Fixture
         $etablissement->setNomEtablissement('Etablissement Test');
         $etablissement->setLogo('test');
         $etablissement->setPays($pays);
+        $etablissement->setPhotourl('https://d1csarkz8obe9u.cloudfront.net/posterpreviews/modern-school-logo-design-template-1d88683e857f70116bf3ba828be9a84e_screen.jpg?ts=1576966343');
 
         $manager->persist($etablissement);
 
         // Entreprise fixture
         $entreprise = new Entreprise();
         $entreprise->setEmail('entreprise@diplome.com');
-        $entreprise->setNom('Etablissement');
+        $entreprise->setNom('Entreprise');
         $entreprise->setPrenom('Test');
         $entreprise->setTelephone('+21261000000');
         $entreprise->setDatenaissance(new \DateTime());
         $password = $this->encoder->encodePassword($entreprise, '123456');
         $entreprise->setPassword($password);
         $entreprise->setDeleted(false);
-        $entreprise->setRoles(["ROLE_ETABLISSEMENT"]);
+        $entreprise->setRoles(["ROLE_ENTREPRISE"]);
         $entreprise->setNomEntreprise('Entreprise Test');
         $entreprise->setLogo('test');
 
@@ -99,7 +100,7 @@ class UserFixtures extends Fixture
         // Secretaire fixture
         $secretaire = new Secretaire();
         $secretaire->setEmail('secretaire@diplome.com');
-        $secretaire->setNom('Directeur');
+        $secretaire->setNom('Secretaire');
         $secretaire->setPrenom('Test');
         $secretaire->setTelephone('+21261000000');
         $secretaire->setDatenaissance(new \DateTime());

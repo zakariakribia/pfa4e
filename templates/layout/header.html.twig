@@ -19,22 +19,70 @@
       <!-- Main Menu -->
       <div class="inner-nav float-right">
         <ul class="clearlist">
-
+          {% if app.user %}
           <!-- Begin::SubMenu -->
           <li class="mr-2">
             <a href="/" class="active menu-link">
-              <span> Home </span>
+              <span> Accueil </span>
             </a>
           </li>
           <!-- ./End SubMenu -->
+          {% endif %}
 
+          {% if is_granted('ROLE_ADMIN') %}
           <!-- Begin::SubMenu -->
-          <li class="mx-2">
-            <a href="#" class="menu-link">Solutions</a>
+          <li>
+            <a href="#" class="mn-has-sub menu-link">
+              <span> Menu admin </span>
+              <i data-feather="chevron-down"></i>
+            </a>
           </li>
           <!-- ./End SubMenu -->
+          {% endif %}
 
+          {% if is_granted('ROLE_ETABLISSEMENT') %}
+          <!-- Begin::SubMenu -->
+          <li>
+            <a href="#" class="mn-has-sub menu-link">
+              <span> Gestion des documents </span>
+              <i data-feather="chevron-down"></i>
+            </a>
 
+            <!-- Sub -->
+            <ul class="mn-sub to-left py-4">
+              <li>
+                <a href="/diplome/">Afficher les documents</a>
+              </li>
+              <li>
+                <a href="/diplome/new">Ajouter un document</a>
+              </li>
+            </ul>
+            <!-- ./End Sub -->
+          </li>
+          <!-- ./End SubMenu -->
+          {% endif %}
+
+          {% if is_granted('ROLE_DIRECTEUR') %}
+          <!-- Begin::SubMenu -->
+          <li>
+            <a href="#" class="mn-has-sub menu-link">
+              <span> Menu directeur </span>
+            </a>
+          </li>
+          <!-- ./End SubMenu -->
+          {% endif %}
+
+          {% if is_granted('ROLE_ENTREPRISE') %}
+          <!-- Begin::SubMenu -->
+          <li>
+            <a href="#" class="mn-has-sub menu-link">
+              <span> Menu entreprise </span>
+            </a>
+          </li>
+          <!-- ./End SubMenu -->
+          {% endif %}
+
+          {% if is_granted('ROLE_SECRETAIRE') %}
           <!-- Begin::LinkMenu -->
           <!-- Begin::SubMenu -->
           <li>
@@ -56,6 +104,19 @@
           </li>
           <!-- ./End SubMenu -->
           <!-- ./End LinkMenu -->
+          {% endif %}
+
+
+          {% if is_granted('ROLE_LAUREAT') %}
+          <!-- Begin::SubMenu -->
+          <li>
+            <a href="#" class="mn-has-sub menu-link">
+              <span> Menu laureat </span>
+              <i data-feather="chevron-down"></i>
+            </a>
+          </li>
+          <!-- ./End SubMenu -->
+          {% endif %}
 
           <!-- ./End LinkMenu -->
           {% if app.user %}
@@ -63,9 +124,16 @@
           <li class="ml-2">
             <a href="#" class="mn-has-sub menu-link">
               <div class="user-menu">
-                <span class="font-weight-bold d-none d-md-inline mr-1">Hi,</span>
+                <span class="font-weight-bold d-none d-md-inline mr-1">Bonjour,</span>
                 <span class="font-weight-bolder d-none d-md-inline mr-2">{{ app.user.email }}</span>
-                <span class="btn btn-md btn-soft-primary"> K </span>
+                <span class="btn btn-md btn-soft-primary"> 
+                {% if app.user.nom|first %} 
+                  {{ app.user.nom|first }}
+                  {% else %}
+                  U
+                {% endif %}
+                </span>
+                <i data-feather="chevron-down"></i>
               </div>
             </a>
 
@@ -77,12 +145,26 @@
                 <div class="d-flex align-items-center justify-content-start p-3">
                   <!-- Avatar -->
                   <div class="d-inline-block position-relative mr-4">
-                    <img class="fx-avatar fx-avatar-md rounded-circle fx-avatar-bordered shadow-lg d-inline-block" src="/build/avatar.jpg" alt="Image Description">
+                    <img class="fx-avatar fx-avatar-md rounded-circle fx-avatar-bordered shadow-lg d-inline-block" 
+                    src="
+                      {% if app.user.photoUrl %} 
+                        {{ app.user.photoUrl }}
+                      {% else %}
+                        /build/avatar.jpg
+                      {% endif %}
+                      "
+                    alt="Image Description">
                   </div>
                   <!-- ./End Avatar -->
                   <!-- User -->
                   <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
-                    <h4 class="fx-text-dark h5 font-weight-bold text-capitalize mb-2"> jhone Doe </h4>
+                    <h4 class="fx-text-dark h5 font-weight-bold text-capitalize mb-2"> 
+                      {% if app.user.nom %} 
+                        {{ app.user.nom }}
+                      {% else %}
+                        {{ app.user.email }}
+                      {% endif %}
+                    </h4>
                     <span class="font-weight-bold btn btn-soft-danger fx-font-size-1 btn-sm">3 messages</span>
                   </div>
                   <!-- ./End User-->
