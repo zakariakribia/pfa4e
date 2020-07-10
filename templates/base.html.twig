@@ -2,18 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,200,300,400,500,600,700|Roboto:400,500,700&display=swap"
-        rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        <!-- Author -->
         <meta name="author" content="suptech">
-
-        <!-- Below tag will be used for android mobile browser colors, change it to main logo color of the project -->
         <meta name="theme-color" content="#393939">
 
         <title>{% block title %}We!{% endblock %}</title>
+            
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
 
         {% block stylesheets %}
             {# 'app' must match the first argument to addEntry() in webpack.config.js #}
@@ -28,11 +24,8 @@
 
         {% include 'layout/header.html.twig' %}
 
-        <div class="fx-section-space-8 bg-light">
-            <div class="container">
-                {% block body %}{% endblock %}
-            </div>
-        </div>
+        
+        {% block body %}{% endblock %}
         
         {% include 'layout/footer.html.twig' %}
 

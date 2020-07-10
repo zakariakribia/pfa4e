@@ -57,7 +57,7 @@ $FX-colors-state: (
         inverse: #ffffff
     ),
     success: ( 
-        base: #1dc9b7,
+        base: #81b441,
         inverse: #ffffff
     ),
     info: ( 
@@ -76,59 +76,21 @@ $FX-colors-state: (
 
 // State colors for navbar
 $FX-colors-navbar: (
-    dark: (
-        base: rgba(0,0,0,100),
-        secondary: #0a0a0a,
-        inverse: #d5d5d5,
-        border: #0a0a0a
-    ), 
     light: (
         base: #fff,
         secondary: #F9F9F9,
         inverse: #22262b,
         border: #f0f0f0
-    ),
-    gradient: (
-        base: linear-gradient(112deg, #3719ea 0%, #254e9f 100%),
-        secondary: #232323,
-        inverse: #fff,
-        border: #f0f0f0
-    )  
-)!default;
-
-// State colors for SoidePanel
-$FX-colors-sidepanel: ( 
-    dark: (
-        text: #d5d5d5,
-        secondary: #101924,
-        base: #101924,
-        inverse: #ffffff, //used on hover
-        border: #282e34,
-        overlay: rgba(10, 10, 10, .85)
-    ), 
-    light: (
-        text: #222,
-        secondary: #F9F9F9,
-        base: #fff,
-        inverse: #22262b,
-        border: #f0f0f0,
-        overlay: rgba(10, 10, 10, .85)
-    ),   
+    ) 
 )!default;
 
 // Base colors
 $FX-colors-base: (
     label: (
-        1: #adb1c7,
-        2: #a7abc3,
-        3: #6c7293,
-        4: #464457
+        1: #adb1c7
     ),
     shape: (
-        1: #f0f3ff,
-        2: #e8ecfa, 
-        3: #93a2dd,
-        4: #646c9a
+        1: #f0f3ff
     ),    
     grey: (
         1: #f7f8fa, //#f4f5f8
@@ -255,5 +217,4 @@ $FX-custom-scroll-size: 4px !default;
 
 
 // Theme mixins
-@import "base/mixins/spinner";
 @import "base/mixins/link";

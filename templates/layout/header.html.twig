@@ -3,7 +3,7 @@
     <div class="container relative clearfix">
       <!-- Logo ( * your text or image into link tag *) -->
       <div class="nav-logo-wrap local-scroll">
-        <a href="#" class="logo pl-md-0 pl-3 fx-text-bolder">
+        <a href="#" class="logo pl-md-0 pl-3 fx-text-boldest">
           <!-- <img class="fx-w-100" src="../assets/img/logos/logo-dark.svg" alt="limbo logo" /> -->
           <span class="fx-text-primary fx-font-family-default"> Verife </span> 
           <span class="fx-text-dark fx-font-family-secondary"> Diploma </span>
@@ -19,9 +19,10 @@
       <!-- Main Menu -->
       <div class="inner-nav float-right">
         <ul class="clearlist">
+
           <!-- Begin::SubMenu -->
           <li class="mr-2">
-            <a href="#" class="active menu-link">
+            <a href="/" class="active menu-link">
               <span> Home </span>
             </a>
           </li>
@@ -56,12 +57,6 @@
           <!-- ./End SubMenu -->
           <!-- ./End LinkMenu -->
 
-          <!-- Begin::LinkMenu -->
-          <li class="mx-2">
-            <a href="#" class="menu-link">
-              <span> Contact </span>
-            </a>
-          </li>
           <!-- ./End LinkMenu -->
           {% if app.user %}
           <!--begin::User-->
@@ -149,14 +144,20 @@
 
           {% if app.user is null or app.user is empty %}
             <li class="mr-2">
-            <a href="/login" class="active menu-link">
-              <span> Connexion </span>
-            </a>
-          </li>
+              <span class="menu-link">
+                <a href="/login" class="btn btn-brand text-light">
+                  <i data-feather="log-in" class="fx-svg-icon pr-2"></i>
+                  <span class="align-middle"> Connexion </span>
+                </a>
+              </span>
+            </li>
           <li class="mr-2">
-            <a href="/register" class="active menu-link">
-              <span> S'inscrire </span>
-            </a>
+            <span class="menu-link">
+              <a href="/register" class="btn btn-brand text-light">
+                <i data-feather="user" class="fx-svg-icon pr-2"></i>
+                <span class="align-middle"> S'inscrire </span>
+              </a>
+            </span>
           </li>
           {% endif %}
         </ul>

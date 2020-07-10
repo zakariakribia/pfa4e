@@ -3,23 +3,31 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+<div class="container">
+    <div class="card my-5 fx-w-md-50 mx-auto">
+        <div class="card-header">
+            <h4>Register</h4>
+        </div>
+        <div class="card-body"> 
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger mb-4" role="alert">{{ flashError }}</div>
+            {% endfor %}
+            {{ form_start(registrationForm) }}
 
-    <h1>Register</h1>
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.nom) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.datenaissance) }}
-        {{ form_row(registrationForm.pseudo) }}
-        {{ form_row(registrationForm.addresse) }}
-        {{ form_row(registrationForm.telephone) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
+                {{ form_row(registrationForm.nom) }}
+                {{ form_row(registrationForm.prenom) }}
+                {{ form_row(registrationForm.datenaissance, {'attr': {'class': 'd-flex justify-content-between'}}) }}
+                {{ form_row(registrationForm.pseudo) }}
+                {{ form_row(registrationForm.addresse) }}
+                {{ form_row(registrationForm.telephone) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
 
-        <button type="submit" class="btn btn-primary">Register</button>
-    {{ form_end(registrationForm) }}
+                <button type="submit" class="btn btn-primary">Register</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+</div>
 {% endblock %}

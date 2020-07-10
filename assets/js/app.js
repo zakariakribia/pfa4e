@@ -19,6 +19,9 @@ feather.replace();
 // Select
 require('select2');
 
+var Sticky = require('sticky-js');
+var sticky = new Sticky('.selector');
+
 
 require('datatables.net-bs4');
 require('datatables.net-responsive-bs4')();
