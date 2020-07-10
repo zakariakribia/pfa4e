@@ -24,6 +24,7 @@
         "jquery-validation": "^1.19.2",
         "popper.js": "^1.16.1",
         "select2": "^4.0.13",
+        "sticky-js": "^1.3.0",
         "sweetalert2": "^9.15.2"
     }
 }

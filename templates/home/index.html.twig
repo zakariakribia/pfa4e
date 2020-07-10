@@ -9,10 +9,68 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-6">
                     <div class="text-left">
-                        <h1 class="display-4 fx-font-weight-boldest mb-5"> Have a meaningful impact </h1>
-                        <p class="intro-lead mb-4 fx-font-size-1 fx-text-lh-md mb-5">
-                            Many organizations treat internships as an opportunity to “pay your dues” or work on project scraps. We reject those notions. Some of the most important things Stripe has built, like the initial versions of Connect and Atlas, were created by one or two people in their first “real” jobs.
-                        </p>
+                        <h1 class="display-4 fx-font-family-secondary fx-text-boldest mb-5"> Our mission is to save your time and effort </h1>
+                        <!-- node -->
+                        <div class="d-flex justify-content-between align-items-center mt-5">
+                            <div class="d-inline-block">
+                                <div class="box my-2 text-center">
+                                    <div class="avatar">
+                                        <img class="fx-avatar rounded-circle fx-avatar-bordered shadow-lg d-inline-block fx-avatar-lg" src="/build/etablissment.svg" alt="Image Description">
+                                    </div>
+                                    <h5 class="h5 mt-4 fx-text-dark fx-font-family-primary"> Etablissement </h5>
+                                </div>
+                            </div>
+                            <div class="d-inline-block">
+                                <svg class="grid-md-hide" width="91" height="40" xmlns="http://www.w3.org/2000/svg">
+                                <g stroke="#604FFC" stroke-width="4" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                                <rect x="0" y="2" width="200" height="0.15" stroke="#ff375c"></rect>
+                                </g>
+                                </svg>
+                            </div>
+                            <div class="d-inline-block">
+                                <div class="box my-2 text-center">
+                                    <div class="avatar">
+                                        <img class="fx-avatar rounded-circle fx-avatar-bordered shadow-lg d-inline-block fx-avatar-lg" src="/build/diploma.svg" alt="Image Description">
+                                    </div>
+                                    <h5 class="h5 mt-4 fx-text-dark fx-font-family-primary"> Diploma </h5>
+                                </div>
+                            </div>
+                            <div class="d-inline-block">
+                                <svg width="91" height="215" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                    <linearGradient id="a" x1="0%" y1="50%" y2="50%" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FF375C" offset="0%"></stop>
+                                    <stop stop-color="#604FFC" offset="100%"></stop>
+                                    </linearGradient>
+                                    </defs>
+                                    <g stroke="#604FFC" stroke-width="4" fill="none" fill-rule="evenodd" stroke-linecap="round">
+
+                                    <path d="M90 2.5C45 0 54 90 0 90" stroke="url(#a)" stroke-width="4" fill="none" fill-rule="evenodd"></path>
+
+                                    <path d="M90 2.5C45 90 54 0 0 90" stroke="url(#a)" stroke-width="4" fill="none" fill-rule="evenodd" opacity=".2"></path>
+
+                                    <path d="M90 178C45 180 54 0 0 90" stroke="url(#a)" stroke-width="4" fill="none" fill-rule="evenodd" opacity=".2"></path>
+
+                                    <path d="M90 178C45 178 54 90 0 90" stroke="url(#a)" stroke-width="4" fill="none" fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="d-inline-block">
+                                <div class="box mb-5 text-center dots__dot position-relative">
+                                    <div class="avatar">
+                                        <img class="fx-avatar rounded-circle fx-avatar-bordered shadow-lg d-inline-block fx-avatar-lg" src="/build/laureat.svg" alt="Image Description">
+                                    </div>
+                                    <h5 class="h5 mt-4 fx-text-dark fx-font-family-primary"> Laureat </h5>
+                                </div>
+                                <div class="box mb-5 text-center">
+                                    <div class="avatar">
+                                        <img class="fx-avatar rounded-circle fx-avatar-bordered shadow-lg d-inline-block fx-avatar-lg" src="/build/entreprise.svg" alt="Image Description">
+                                    </div>
+                                    <h5 class="h5 mt-4 fx-text-dark fx-font-family-primary"> Entreprise </h5>
+                                </div>
+                            </div>
+                    
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -21,7 +79,7 @@
             </div>
         </div>
         {# <div class="position-absolute fx-left-0 fx-bottom-0 fx-right-0 fx-h-100 dots-bg"></div> #}
-        <div class="common-StripeGrid anchorBottom">
+        <div class="commonItemgrid anchorBottom">
             <div class="backgroundContainer">
                 <div class="grid">
                 <div class="background Helm__background--slate9"></div>
@@ -40,99 +98,117 @@
     <!--process -->
     <section class="fx-section-space-8 position-relative">
         <div class="container">
-        <div class="head">
-            <h2 class="title text-center mb-5">How <span> Diploma </span> work </h2>
-        </div>
-            <div class="row justify-content-between align-items-center">
-                <div class="col-md-6 col-lg-4">
-                    <article class="fx-card border-0 shadow-lg mb-5">
-                        <div class="position-relative">
-                            <img class="card-img-top fx-height-200 img-fit-cover" src="/build/laureat.jpg" alt="..." />
-                        </div>
-                        <!-- Body -->
-                        <div class="fx-card-body text-center position-relative">
-                            <!-- Avatar -->
-                            <div class="mt-n5">
-                                <span class="fx-badge fx-badge-dark fx-badge-rect p-4 fx-font-size-1_5">Laureat</span>
+            <div class="head">
+                <h2 class="display-5 fx-font-family-secondary fx-text-boldest text-center mb-5">How <span class="fx-text-primary"> Diploma </span> work </h2>
+            </div>
+            <div class="fx-section-space-4">
+                <div class="row justify-content-between align-items-center">
+                <!-- Laureat -->
+                <div data-sticky-container>
+                    <div class="row align-items-top justify-content-between">
+                        <div class="col-md-6">
+                            <div class="selector" data-sticky-wrap="true" data-margin-top="20" data-sticky-for="900" data-sticky-class="is-sticky">
+                                <div class="mt-5">
+                                    <h2 class="h1 fx-text-dark fx-text-boldest mb-5"> Shaping a vision, delivering software, creating world class experiences </h2>
+                                    <p class="fx-font-size-1_5">
+                                        Collaborating with Netguru has had a lasting impact on our ability to be innovative and execute at a pace. The team there have a strong focus on not just doing what you ask for.
+                                    </p>
+                                </div>
                             </div>
-                            <!-- Heading -->
-                            <h4 class="fx-text-dark h4 fx-text-bolder mt-4"> Katie Williams </h4>
-                            <!-- Text -->
-                            <p class="fx-text-dark fx-font-size-1"> Wordpress expert </p>
-                            <!-- Blockquote -->
-                            <blockquote class="mb-3">
-                            <q class="font-size-lg"> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </q>
-                            </blockquote>
                         </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4 mt-5 pt-5">
-                    <article class="fx-card border-0 shadow-lg my-5">
-                        <div class="position-relative">
-                            <img class="card-img-top fx-height-200 img-fit-cover" src="/build/laureat.jpg" alt="..." />
-                        </div>
-                        <!-- Body -->
-                        <div class="fx-card-body text-center position-relative">
-                            <!-- Avatar -->
-                            <div class="mt-n5">
-                                <span class="fx-badge fx-badge-dark fx-badge-rect p-4 fx-font-size-1_5">Laureat</span>
+                        <div class="col-md-6">
+                            <div class="laureat mb-5">
+                                <div class="fx-card shadow-lg">
+                                    <div class="fx-card-body p-5 position-relative fx-bg-brand fx-text-light">
+                                        <p class="position-absolute fx-right-0 fx-top-0 display-1 fx-text-boldest fx-opacity-9 ml-5 fx-z-index-2"> 01 </p>
+                                        <h5 class="h1 fx-font-family-primary fx-text-boldest fx-z-index-4"> Laureat </h5>
+                                        <p class="my-5 h5 font-weight-normal fx-text-lh-md">
+                                            Regardless of whether you need to craft an idea for a completely new product or evaluate the quality of an already existing one – we're here to help you.
+                                        </p>
+                                        <ul class="list">
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. </li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Heading -->
-                            <h4 class="fx-text-dark h4 fx-text-bolder mt-4"> Katie Williams </h4>
-                            <!-- Text -->
-                            <p class="fx-text-dark fx-font-size-1"> Wordpress expert </p>
-                            <!-- Blockquote -->
-                            <blockquote class="mb-3">
-                            <q class="font-size-lg"> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </q>
-                            </blockquote>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <article class="fx-card border-0 shadow-lg mb-5">
-                        <div class="position-relative">
-                            <img class="card-img-top fx-height-200 img-fit-cover" src="/build/entreprise.jpg" alt="..." />
-                        </div>
-                        <!-- Body -->
-                        <div class="fx-card-body text-center position-relative">
-                            <!-- Avatar -->
-                            <div class="mt-n5">
-                                <span class="fx-badge fx-badge-dark fx-badge-rect p-4 fx-font-size-1_5">Entreprise</span>
+                            <div class="laureat mb-5">
+                                <div class="fx-card shadow-lg">
+                                    <div class="fx-card-body p-5 position-relative fx-bg-danger fx-text-light">
+                                        <p class="position-absolute fx-right-0 fx-top-0 display-1 fx-text-boldest fx-opacity-9 ml-5 fx-z-index-2"> 02 </p>
+                                        <h5 class="h1 fx-font-family-primary fx-text-boldest fx-z-index-4"> Entreprise </h5>
+                                        <p class="my-5 h5 font-weight-normal fx-text-lh-md">
+                                            Regardless of whether you need to craft an idea for a completely new product or evaluate the quality of an already existing one – we're here to help you.
+                                        </p>
+                                        <ul class="list">
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. </li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Heading -->
-                            <h4 class="fx-text-dark h4 fx-text-bolder mt-4"> Katie Williams </h4>
-                            <!-- Text -->
-                            <p class="fx-text-dark fx-font-size-1"> Wordpress expert </p>
-                            <!-- Blockquote -->
-                            <blockquote class="mb-3">
-                            <q class="font-size-lg"> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </q>
-                            </blockquote>
+                            <div class="laureat mb-5">
+                                <div class="fx-card shadow-lg">
+                                    <div class="fx-card-body p-5 position-relative fx-bg-success fx-text-light">
+                                        <p class="position-absolute fx-right-0 fx-top-0 display-1 fx-text-boldest fx-opacity-9 ml-5 fx-z-index-2"> 03 </p>
+                                        <h5 class="h1 fx-font-family-primary fx-text-boldest fx-z-index-4"> Etablissement </h5>
+                                        <p class="my-5 h5 font-weight-normal fx-text-lh-md">
+                                            Regardless of whether you need to craft an idea for a completely new product or evaluate the quality of an already existing one – we're here to help you.
+                                        </p>
+                                        <ul class="list">
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. </li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                            <li class="list-item mb-4 h6 font-weight-normal fx-text-lh-md fx-font-family-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </article>
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-md-6 col-lg-4">
-                    <article class="fx-card border-0 shadow-lg mb-5">
-                        <div class="position-relative">
-                            <img class="card-img-top fx-height-200 img-fit-cover" src="/build/laureat.jpg" alt="..." />
-                        </div>
-                        <!-- Body -->
-                        <div class="fx-card-body text-center position-relative">
-                            <!-- Avatar -->
-                            <div class="mt-n5">
-                                <span class="fx-badge fx-badge-dark fx-badge-rect p-4 fx-font-size-1_5">Laureat</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- testemonials -->
+    <section class="fx-section-space-8 position-relative bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="fx-w-md-60">
+                    <div class="quote-module d-flex align-items-top">
+                        <svg class="mr-5" width="200px" height="66px" viewBox="0 0 60 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>icon_quote</title>
+                            <g id="CASE-STUDIES" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Bespoke_CS_Temi" transform="translate(-387.000000, -5684.000000)" fill="#00D563" fill-rule="nonzero">
+                                    <g id="Group-5">
+                                        <g id="Group" transform="translate(0.000000, 960.000000)">
+                                            <g id="QUOTE-1" transform="translate(387.000000, 4724.000000)">
+                                                <g id="icon_quote">
+                                                    <path d="M4.28571429,42 L17.1428571,42 L25.7142857,25.2 L25.7142857,0 L0,0 L0,25.2 L12.8571429,25.2 L4.28571429,42 Z M38.5714286,42 L51.4285714,42 L60,25.2 L60,0 L34.2857143,0 L34.2857143,25.2 L47.1428571,25.2 L38.5714286,42 Z" id="Shape"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <div class="quote-content">
+                            <p class="h3 fx-text-lh-md mb-5 text-left">
+                                Since the beginning our main goal was to help entrepreneurs&nbsp;build new software solution that matters. Building and shipping products that are helpful for people, making world a better place, for everyone, including ourselves.
+                            </p>
+                            <div class="quote2-module__content--author">
+                                <img class="fx-avatar rounded-circle fx-avatar-bordered shadow-lg d-inline-block fx-avatar-lg" src="/build/avatar-2.svg" alt="Image Description">
+                                <span class="pl-4">Soya Diallo,&nbsp;Chef Project</span>
                             </div>
-                            <!-- Heading -->
-                            <h4 class="fx-text-dark h4 fx-text-bolder mt-4"> Katie Williams </h4>
-                            <!-- Text -->
-                            <p class="fx-text-dark fx-font-size-1"> Wordpress expert </p>
-                            <!-- Blockquote -->
-                            <blockquote class="mb-3">
-                            <q class="font-size-lg"> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </q>
-                            </blockquote>
                         </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </div>
