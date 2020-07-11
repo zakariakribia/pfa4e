@@ -91,4 +91,114 @@ class LaureatController extends AbstractController
 
         return $this->redirectToRoute('laureat_index');
     }
+    
+    /**
+     * @Route("/profildip/{id}", name="laureat_diplome", methods={"GET"})
+     */
+    public function profildiplome(Laureat $laureat):Response
+    {
+        return $this->render('laureat/profilDip.html.twig',[
+          'laureat' => $laureat
+        ]);
+    }
+
+    /**
+ * @Route("/profiletab/{id}", name="laureat_etablissement", methods={"GET","POST"})
+ */
+    public function profiletablissement(Laureat $laureat,Request $request):Response
+    {
+        $name = $request->request->get("name");
+
+        $repository = $this->getDoctrine()->getRepository(Etablissement::class);
+        $etablissements = $repository->findBy(
+            ['nomEtablissement' => $name]
+        );
+
+        return $this->render('laureat/profilEtab.html.twig',[
+            'laureat' => $laureat,
+            'etablissements' => $etablissements,
+            'name' => $name
+
+        ]);
+    }
+
+
+    /**
+     * @Route("/profilmodif/{id}", name="laureat_modif", methods={"GET","POST"})
+     */
+    public function profilmodification(Laureat $laureat,Request $request):Response
+    {
+        $form = $this->createForm(LaureatType::class, $laureat);
+        $form->handleRequest($request);
+
+        return $this->render('laureat/profilModif.html.twig', [
+            'laureat' => $laureat,
+            'form' => $form->createView(),
+        ]);
+
+    }
+
+    /**
+     * @Route("/profilmodifier/{id}", name="laureat_modifier", methods={"GET","POST"})
+     */
+    public function profilmodifier(Laureat $laureat,Request $request):Response
+    {
+        $form = $this->createForm(LaureatType::class, $laureat);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form['photoUrl']->getData();
+
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            try{
+                $file->move($this->getParameter('image_directory'),$fileName);
+            }catch (FileException $e){}
+
+            $laureat->setPhotoUrl($fileName);
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', 'Le compte a été modifié avec succes');
+
+            return $this->redirectToRoute('laureat_apropos',array(
+
+                'id' => $laureat->getId()));
+        }
+
+
+    }
+
+    /**
+     * @Route("/profilapropos/{id}", name="laureat_apropos", methods={"GET"})
+     */
+    public function profilapropos(Laureat $laureat):Response
+    {
+        return $this->render('laureat/profilApropos.html.twig',[
+            'laureat' => $laureat
+        ]);
+    }
+
+    /**
+     * @Route("/profildesactiver/{id}", name="laureat_desactiver", methods={"GET","POST"})
+     */
+    public function profildesactiver(Laureat $laureat,Request $request):Response
+    {
+        $action=$request->request->get("desac");
+
+        if($action)
+        {
+        $laureat->setDeleted(1);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($laureat);
+        $entityManager->flush();
+
+        return $this->render('laureat/profilDip.html.twig',[
+            'laureat' => $laureat
+        ]);
+        }
+        return $this->render('laureat/profilDesactiver.html.twig',[
+            'laureat' => $laureat
+        ]);
+    }
 }
