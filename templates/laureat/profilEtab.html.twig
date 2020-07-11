@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+{% block stylesheets %}
+
+    <link href="{{ asset('css/laureat/style2.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <div style="width: 25%;position: absolute">
+        <img src="{{ asset('uploads/imagesLaureat/'~ laureat.photoUrl) }}" style=" width:70%;height:70%;margin: 10%">
+        <br>
+        <b style="position: absolute;margin-left: 10%;color: grey">Nationalité</b>  <hr style="width: 60%">
+
+
+        <font face="Agency FB" style="color: black;font-size: 17px;margin-left: 10%"> {{ laureat.nationalite }}</font>
+        <br><br>
+        <b style="position: absolute;margin-left: 10%;color: grey">Date de naissance</b>  <hr style="width: 60%">
+        <font face="Agency FB" style="color: black;font-size: 17px;margin-left: 10%"><i class="far fa-calendar-alt"></i> {{ laureat.datenaissance|date("m/d/Y") }}</font>
+        <br>
+        <span class="badge badge-info" style="margin: 10%;width: 70%">Laureat</span>
+    </div>
+    <br><br>
+    <div style="width: 70%;margin-left: 24%;">
+        <b style="font-size: 24px;color: #F3E7E5 ;margin-left: 87%">Mon espace</b>
+        <br>
+        <b style="font-size: 24px">{{ laureat.prenom }} {{ laureat.nom }} </b>
+
+        <br>
+        <font face="Agency FB" style="color: grey;font-size: 17px"><i class="fas fa-map-marker-alt"></i> {{ laureat.adresse }}</font>
+        <br><br>
+        <ul class="nav justify-content" style="margin-left: 10%">
+            <li class="nav-item" style="border-radius: 5px;">
+                <a href="{{ path('laureat_diplome', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn1" >
+                        <b style="color: grey"><i class="fas fa-book"></i> Mes diplomes</b>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+
+                <button type="button" class="btn btn-outline btn2" style="background-color: #F9F4F3;">
+                    <b style="color: grey"><i class="fas fa-graduation-cap"></i> Etablissement</b>
+                </button>
+
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_modif', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn3">
+                        <b style="color: grey"><i class="fas fa-user-cog"></i> Modifier compte</b>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_apropos', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn4">
+                        <b style="color: grey"><i class="far fa-address-card"></i> À propos</b>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_desactiver', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn5">
+                        <b style="color: grey"><i class="fas fa-exclamation-circle"></i> Désactiver compte</b>
+                    </button>
+                </a>
+            </li>
+        </ul>
+        <hr>
+    </div>
+    <div style="margin-left:25%;width: 68%; ">
+        <form method="post" action="{{ path('laureat_etablissement',{'id': laureat.id}) }}">
+            <div class="input-group mb-3" style="width: 50%;margin-left: 27%">
+
+                <input type="text" class="form-control" placeholder="Rechercher un etablissement"  name="name">
+
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2" >
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div style="display: flex;flex-direction: row">
+
+            {% if(name | length != 0 and etablissements | length != 0) %}
+
+            {% for etablissement in etablissements %}
+
+                    <div class="card" style="width: 18rem;box-shadow: 1px 1px 1px #888888;margin-left: 3%">
+                        <img src="{{ asset('images/sup.jpg') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ etablissement.nomEtablissement }}</h5>
+                            <b style="color: grey;font-size: 13px"><i class="fas fa-map-marker-alt"></i> {{ etablissement.adresse }}</b><br>
+                            <button type="button" class="btn btn-primary btn-sm" style="margin-left: 60%">Voir profil</button>
+                        </div>
+                    </div>
+            {% endfor %}
+
+            {% elseif (etablissements | length == 0 and name | length != 0) %}
+
+                <div class="alert alert-danger" role="alert" style="width: 40%;margin-left: 20%">
+                    Aucun etablissement trouvé pour le nom <b>{{ name }}</b>
+                </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+{% endblock %}

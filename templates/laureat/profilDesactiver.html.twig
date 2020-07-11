@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/laureat/style5.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div style="width: 25%;position: absolute">
+        <img src="{{ asset('uploads/imagesLaureat/'~ laureat.photoUrl) }}" style=" width:70%;height:70%;margin: 10%">
+        <br>
+        <b style="position: absolute;margin-left: 10%;color: grey">Nationalité</b>  <hr style="width: 60%">
+
+        <font face="Agency FB" style="color: black;font-size: 17px;margin-left: 10%"> {{ laureat.nationalite }}</font>
+        <br><br>
+        <b style="position: absolute;margin-left: 10%;color: grey">Date de naissance</b>  <hr style="width: 60%">
+        <font face="Agency FB" style="color: black;font-size: 17px;margin-left: 10%"><i class="far fa-calendar-alt"></i> {{ laureat.datenaissance|date("m/d/Y") }}</font>
+        <br>
+        <span class="badge badge-info" style="margin: 10%;width: 70%">Laureat</span>
+    </div>
+    <br><br>
+    <div style="width: 70%;margin-left: 24%;">
+        <b style="font-size: 24px;color: #F3E7E5 ;margin-left: 87%">Mon espace</b>
+        <br>
+        <b style="font-size: 24px">{{ laureat.prenom }} {{ laureat.nom }}</b>
+
+        <br>
+        <font face="Agency FB" style="color: grey;font-size: 17px"><i class="fas fa-map-marker-alt"></i> {{ laureat.adresse }}</font>
+        <br><br>
+        <ul class="nav justify-content" style="margin-left: 10%">
+            <li class="nav-item" style="border-radius: 5px;">
+                <a href="{{ path('laureat_diplome', {'id': laureat.id}) }}">
+                <button type="button" class="btn btn-outline btn1" >
+                    <b style="color: grey"><i class="fas fa-book"></i> Mes diplomes</b>
+                </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_etablissement', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn2">
+                        <b style="color: grey"><i class="fas fa-graduation-cap"></i> Etablissement</b>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_modif', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn3">
+                        <b style="color: grey"><i class="fas fa-user-cog"></i> Modifier compte</b>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_apropos', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn4">
+                        <b style="color: grey"><i class="far fa-address-card"></i> À propos</b>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <button type="button" class="btn btn-outline btn5" style="background-color: #F9F4F3">
+                    <b style="color: grey"><i class="fas fa-exclamation-circle"></i> Désactiver compte</b>
+                </button>
+            </li>
+        </ul>
+        <hr>
+    </div>
+    <div class="card text" style="width: 60%;margin-left: 30%">
+        <div class="card-header">
+            <h5 class="card-title" style="margin-left: 34%">Désactivation du compte</h5>
+        </div>
+
+        <div class="card-body" >
+        <form method="post" action="{{ path('laureat_desactiver', {'id': laureat.id}) }}">
+            <b style="margin-left: 40%;color: grey">Désactiver </b>
+                <input class="form-check-input" type="checkbox" value="1" name="desac" style="margin-left: 1%" required>
+          <a href="" onclick="return confirm('Voulez vous vraiment désactiver votre compte !')">
+
+            <button type="submit" class="btn btn-success btn-sm" style="margin-left: 91%">Valider</button>
+          </a>
+           </form>
+        </div>
+
+
+    </div>
+{% endblock %}

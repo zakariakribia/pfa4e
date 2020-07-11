@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/laureat/style4.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+      <div class="alert alert-success" style="width: 25%;margin-left: 36%">
+          {{ message }}
+      </div>
+    {% endfor %}
+    <div style="width: 25%;position: absolute">
+        <img src="{{ asset('uploads/imagesLaureat/'~ laureat.photoUrl) }}" style=" width:70%;height:70%;margin: 10%">
+        <br>
+        <b style="position: absolute;margin-left: 10%;color: grey">Nationalité</b>  <hr style="width: 60%">
+
+        <font face="Agency FB" style="color: black;font-size: 17px;margin-left: 10%"> {{ laureat.nationalite }}</font>
+        <br><br>
+        <b style="position: absolute;margin-left: 10%;color: grey">Date de naissance</b>  <hr style="width: 60%">
+        <font face="Agency FB" style="color: black;font-size: 17px;margin-left: 10%"><i class="far fa-calendar-alt"></i> {{ laureat.datenaissance|date("m/d/Y") }}</font>
+        <br>
+        <span class="badge badge-info" style="margin: 10%;width: 70%">Laureat</span>
+    </div>
+    <br><br>
+    <div style="width: 70%;margin-left: 24%;">
+        <b style="font-size: 24px;color: #F3E7E5 ;margin-left: 87%">Mon espace</b>
+        <br>
+        <b style="font-size: 24px">{{ laureat.prenom }} {{ laureat.nom }}</b>
+
+        <br>
+        <font face="Agency FB" style="color: grey;font-size: 17px"><i class="fas fa-map-marker-alt"></i> {{ laureat.adresse }}</font>
+        <br><br>
+        <ul class="nav justify-content" style="margin-left: 10%">
+            <li class="nav-item" style="border-radius: 5px;">
+                <a href="{{ path('laureat_diplome', {'id': laureat.id}) }}">
+                <button type="button" class="btn btn-outline btn1" >
+                    <b style="color: grey"><i class="fas fa-book"></i> Mes diplomes</b>
+                </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_etablissement', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn2">
+                        <b style="color: grey"><i class="fas fa-graduation-cap"></i> Etablissement</b>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_modif', {'id': laureat.id}) }}">
+                    <button type="button" class="btn btn-outline btn3">
+                        <b style="color: grey"><i class="fas fa-user-cog"></i> Modifier compte</b>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <button type="button" class="btn btn-outline btn4" style="background-color: #F9F4F3">
+                    <b style="color: grey"><i class="far fa-address-card"></i> À propos</b>
+                </button>
+            </li>
+            <li class="nav-item" style="margin-left: 5%">
+                <a href="{{ path('laureat_desactiver', {'id': laureat.id}) }}">
+                <button type="button" class="btn btn-outline btn5">
+                    <b style="color: grey"><i class="fas fa-exclamation-circle"></i> Désactiver compte</b>
+                </button>
+                </a>
+            </li>
+        </ul>
+        <hr>
+    </div>
+
+       <div  style="width:70%;margin-left:24%;box-shadow: 1px 1px 1px 2px #ECEAEA ">
+           <br>
+        <b style="position: absolute;color: grey;margin-left: 2%">À propos</b> <hr style="width: 50%;margin-left: 10%;color: grey">
+           <br>
+           <b style="margin-left: 10%">Email </b> &nbsp;&nbsp;&nbsp;<font face="Arial">{{ laureat.email }}</font>
+           <br><br>
+           <b style="margin-left: 10%">Téléphone </b> &nbsp;&nbsp;&nbsp;<font face="Arial">{{ laureat.telephone }}</font>
+           <br><br>
+           <b style="margin-left: 10%">CIN / Numéro séjour </b> &nbsp;&nbsp;&nbsp;<font face="Arial">{{ laureat.cinNumSejour }}</font>
+           <br><br>
+           <b style="margin-left: 10%">Lieu de naissance </b> &nbsp;&nbsp;&nbsp;<font face="Arial">{{ laureat.lieuNaissance }}</font>
+           <br><br>
+           <b style="margin-left: 10%">Nom Arabe </b> &nbsp;&nbsp;&nbsp;<font face="Arial">{{ laureat.nomArabe }}</font>
+           <br><br>
+           <b style="margin-left: 10%">Prénom Arabe </b> &nbsp;&nbsp;&nbsp;<font face="Arial">{{ laureat.prenomArabe }}</font>
+           <a href="{{ path('laureat_modif',{'id': laureat.id}) }}">
+             <button type="button" class="btn btn-success btn-sm" style="margin-left: 89%">Modifier</button>
+           </a>
+           <p style="color: white">.....</p>
+       </div>
+{% endblock %}
